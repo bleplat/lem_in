@@ -6,7 +6,7 @@
 #    By: bleplat <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 09:05:04 by bleplat           #+#    #+#              #
-#    Updated: 2020/02/27 18:14:02 by bleplat          ###   ########.fr        #
+#    Updated: 2020/02/27 19:59:34 by bleplat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,11 @@ LIBFTMO     = libftmo.so
 ###########################
 
 FNT =		li_main.c \
-			
+			li_perror.c \
+			li_board.c \
+			li_board_parse_input.c \
+			li_room_find.c \
+			li_make_link.c \
 
 
 ###########################

@@ -6,6 +6,7 @@
 TODO
 *.log
 /demo/*.demo
+lem_in
 
 # Prerequisites
 *.d

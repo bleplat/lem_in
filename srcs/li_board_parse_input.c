@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   li_link.h                                          :+:      :+:    :+:   */
+/*   li_board_parse_input.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/27 16:57:37 by bleplat           #+#    #+#             */
-/*   Updated: 2020/02/27 19:39:04 by bleplat          ###   ########.fr       */
+/*   Created: 2020/02/27 18:35:04 by bleplat           #+#    #+#             */
+/*   Updated: 2020/02/27 19:41:06 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LINK_H
-# define FT_LINK_H
-
-# include "li_board.h"
-# include "li_room.h"
+#include "li_board.h"
 
 /*
-** t_li_link
-**
-** Represent a link between two rooms (here called 'a' and 'b').
+** Parse the ant count, rooms and links, from stdin, to a board.
+** Return a negative number on error.
 */
 
-typedef struct s_li_link	t_li_link;
-typedef t_li_link			t_link;
-struct						s_li_link
+int				li_board_parse_input(t_li_board *board)
 {
-	int			i_room_a;
-	int			i_room_b;
-	t_li_room	*p_room_a;
-	t_li_room	*p_room_b;
-};
-
-#endif
+	(void)board;
+	//t_array		rooms_a;
+	//t_array		links_a;
+	return (-1);
+}
