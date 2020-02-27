@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   li.h                                               :+:      :+:    :+:   */
+/*   li_perror.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/27 19:11:09 by bleplat           #+#    #+#             */
-/*   Updated: 2020/02/27 19:59:47 by bleplat          ###   ########.fr       */
+/*   Created: 2020/02/27 19:53:38 by bleplat           #+#    #+#             */
+/*   Updated: 2020/02/27 20:27:54 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LI_H
-# define LI_H
+#include "libft.h"
 
-# include "li_board.h"
-# include "li_link.h"
-# include "li_room.h"
-
-int						li_perror(int code, const char *message);
-
-#endif
+int					li_perror(int code, const char *message)
+{
+	(void)message;
+	if (code == 0 && message == NULL)
+		ft_dprintf(2, "ERROR");
+	return (code);
+}
