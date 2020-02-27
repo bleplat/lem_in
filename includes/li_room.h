@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 22:23:36 by jthierce          #+#    #+#             */
-/*   Updated: 2020/02/27 18:09:36 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/02/27 18:12:02 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ struct							s_li_room
 	int			y;
 	// Ce qui est utile lors de la resolution de l'algo
 	int			*link;//Mettre a NULL
+	int			count_link;//Initialiser a 0
 	t_room		*prev;//mettre a NULL
 	int			status;//Initialiser a 0
 };
