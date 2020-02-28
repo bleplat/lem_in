@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   li.h                                               :+:      :+:    :+:   */
+/*   li_parsing_should_line_be_ignored.c                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/27 19:11:09 by bleplat           #+#    #+#             */
-/*   Updated: 2020/02/28 13:08:10 by bleplat          ###   ########.fr       */
+/*   Created: 2020/02/28 13:39:13 by bleplat           #+#    #+#             */
+/*   Updated: 2020/02/28 13:44:21 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LI_H
-# define LI_H
+#include "li.h"
 
-# include "li_board.h"
-# include "li_link.h"
-# include "li_room.h"
+/*
+** Return non-zero if the ine should be ignored.
+** Return 0 otherwise.
+*/
 
-# define LI_CMD_START "##start\n"
-# define LI_CMD_END "##end\n"
-
-int						li_perror(int code, const char *message);
-
-#endif
+int				li_parsing_should_line_be_ignored(char *line)
+{
+	if (!line)
+		return (0);
+	if (ft_strcmp(line, LI_CMD_START) == 0 || ft_strcmp(line, LI_CMD_END) == 0) // TODO: make a strcmpnl ?
+		return (0);
+	if (line[0] == '#')
+		return (1);
+	return (0);
+}
