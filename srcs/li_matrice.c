@@ -6,11 +6,24 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 13:56:04 by jthierce          #+#    #+#             */
-/*   Updated: 2020/02/27 17:37:40 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/02/28 14:47:09 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+
+/*
+**Matrice Value:
+**
+**0: No link
+**1: Link
+**2: Used Link whith A path
+**3: Used link whith B path
+**4: matrice[x][y] direction is x->y
+**5: matrice[x][y] direction is y->x
+**6: Used C path with 4
+**7: Used C path with 5
+*/
 
 void li_free_matrice(int **matrice, int size)
 {

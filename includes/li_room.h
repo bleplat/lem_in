@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 22:23:36 by jthierce          #+#    #+#             */
-/*   Updated: 2020/02/27 19:17:12 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/02/28 15:03:45 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,16 @@
 ** Represent a room.
 ** The first members result from of the parsing of the input.
 ** The remainings are used to resolve lem_in.
+*/
+
+/*
+** STATUS VALUE:
+**
+**0: Nothing
+**1: in Queue
+**2: In path
+**5: Mandatory to use C path
+**6: Used path C
 */
 
 typedef struct s_li_room		t_li_room;
