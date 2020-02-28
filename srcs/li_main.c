@@ -6,47 +6,60 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 17:45:14 by bleplat           #+#    #+#             */
-/*   Updated: 2020/02/27 19:58:32 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/02/28 14:49:00 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "li_board.h"
+#include "li.h"
 
 /*
-** Main, resolve lem_in and print
+** Main, resolve lem_in.
+** Return a negative int on error.
 */
 
-int		main_resolve(t_li_board board)
+int		main_resolve(t_li_board *board)
 {
 	(void)board;
 	// TODO: Resolve lem_in.
-	// TODO: Print input.
-	// TODO: Print results.
 	return (-42);
 }
 
 /*
-** Main, parsing options and inputs.
+** Main, parse input then resolve.
+** Return a negative int on error.
+*/
+
+int		main_parse_resolve(t_li_board *board)
+{
+	int		rst;
+
+	if ((rst = li_board_parse_input(board)) < 0)
+		return (rst);
+	if ((rst = main_resolve(board)) < 0)
+		return (rst);
+	return (0);
+}
+
+/*
+** Main, create the empty base board.
 */
 
 int		main(int argc, char **argv)
 {
 	int			rst;
-	t_li_board	board;
+	t_li_board	*board;
 
 	(void)argc;
 	(void)argv;
-	board = li_board_create();
-	if ((rst = li_board_parse_input(&board)) < 0)
+	if (!(board = li_board_create()))
+		return (-li_perror(-1, NULL));
+	if ((rst = main_parse_resolve(board)) < 0)
 	{
 		li_board_destroy(&board);
-		return (-rst);
+		return (-li_perror(rst, NULL));
 	}
-	if ((rst = main_resolve(board)) < 0)
-	{
-		li_board_destroy(&board);
-		return (-rst);
-	}
+	li_print_input(board);
+	li_print_result(board);
 	li_board_destroy(&board);
 	return (0);
 }

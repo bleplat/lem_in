@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   li_board_parse_input.c                             :+:      :+:    :+:   */
+/*   li_board_add_output.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/27 18:35:04 by bleplat           #+#    #+#             */
-/*   Updated: 2020/02/28 15:22:13 by bleplat          ###   ########.fr       */
+/*   Created: 2020/02/28 14:16:49 by bleplat           #+#    #+#             */
+/*   Updated: 2020/02/28 14:57:32 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 #include "li_board.h"
-#include "li_link.h"
-#include "li_room.h"
 
-
-
-/*
-** Parse the ant count, rooms and links, from stdin, to a board.
-** Return a negative number on error.
-*/
-
-int				li_board_parse_input(t_li_board *board)
+int					li_board_add_output(t_li_board *brd, const char *line)
 {
-	int		rst;
+	char	**new_item;
 
-	if ((rst = li_parse_ants(board)) < 0)
-		return (rst);
-	if ((rst = li_parse_rooms(board)) < 0)
-		return (rst);
-	if ((rst = li_parse_links(board)) < 0)
-		return (rst);
+	new_item = ft_array_newitem(brd->output_a);
+	if (!new_item)
+		return (-1);
+	*new_item = line;
 	return (0);
 }
