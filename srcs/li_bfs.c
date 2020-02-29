@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 19:03:31 by jthierce          #+#    #+#             */
-/*   Updated: 2020/02/28 15:22:07 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/02/29 13:56:20 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,14 @@
 
 static void	li_reset_bfs(t_board board)
 {
+	int i;
+
+	i = -1;
+	while (++i < board.rooms_count)
+	{
+		if (board.rooms[i].status == 1)
+			board.rooms[i].status = 0;
+	}
 }
 
 static void	li_create_path(t_board t_board, int **matrice)
@@ -61,8 +69,12 @@ int		li_bfs(t_board board, int **matrice)
 	while  (board.rooms[1].status == 1 && queu[++i] != 0)
 		j += li_bfs_body(board, matrice, queu + i, j - i);
 	if (queu[i] == 0 && board.rooms[1].status == 0)
+	{
+		free(queu);
 		return (-2);
+	}
 	else if (queu[i] != 0)
 		li_create_path(board, matrice);
+	free(queu);
 	return (0);
 }
