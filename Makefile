@@ -6,7 +6,7 @@
 #    By: bleplat <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 09:05:04 by bleplat           #+#    #+#              #
-#    Updated: 2020/02/29 17:41:03 by bleplat          ###   ########.fr        #
+#    Updated: 2020/02/29 20:50:26 by bleplat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,6 +75,7 @@ CFLAGS = -Wall -Wextra -Werror
 CFLAGS += $(CDEFINES)
 CFLAGS += -I $(INCLUDES)
 CFLAGS += -I $(LIBFT_DIR)/includes
+#CFLAGS += -o3
 
 LDFLAGS += -L $(LIBFT_DIR) -lft
 
