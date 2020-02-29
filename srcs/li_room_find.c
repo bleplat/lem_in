@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 19:15:36 by bleplat           #+#    #+#             */
-/*   Updated: 2020/02/29 20:24:59 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/02/29 20:42:54 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ t_li_room		*li_room_find(t_room *rooms, int count, const char *name)
 {
 	int		i_room;
 
-	i_room = 0;
-	while (i_room < count)
+	i_room = count - 1;
+	while (i_room >= 0)
 	{
 		if (ft_strcmp(rooms[i_room].name, name) == 0)
 			return (rooms + i_room);
-		i_room++;
+		i_room--;
 	}
 	return (NULL);
 }
