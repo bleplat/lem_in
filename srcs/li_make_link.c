@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 18:57:24 by bleplat           #+#    #+#             */
-/*   Updated: 2020/02/27 19:42:49 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/02/29 16:26:33 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 ** Return a negative int on error.
 */
 
+// TODO: dont add duplicate links
 int			li_make_link(t_li_link *out, t_li_board *brd, char *r1, char *r2)
 {
 	if (out == NULL)

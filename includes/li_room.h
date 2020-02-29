@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 22:23:36 by jthierce          #+#    #+#             */
-/*   Updated: 2020/02/28 15:03:45 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/02/29 16:00:40 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,9 @@ struct							s_li_room
 };
 
 t_li_room						*li_room_find(t_room *rooms, int cnt, char *n);
+
+int								li_room_clean0(t_room *room);
+int								li_room_popcln(t_array *rooms);
+
 
 #endif

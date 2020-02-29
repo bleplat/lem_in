@@ -6,13 +6,34 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 15:20:19 by bleplat           #+#    #+#             */
-/*   Updated: 2020/02/28 15:21:53 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/02/29 16:32:01 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+** Parse a single link from a line.
+*/
+
 int				parse_link(t_li_board *board, t_array *links_a, char *line)
 {
+	t_li_link	*new_link;
+	char		*stick;
+	char		*nl;
 
+	if (!(stick = ft_strchr(line, '-'));
+		return (LI_ERROR_LINKS_SYNTAX);
+	if (!(nl = ft_strchr(stick, '\n'));
+		return (LI_ERROR_LINKS_SYNTAX);
+	*stick = '\0';
+	*nl = '\0';
+	if (!(new_link = ft_array_newitem(links_a)))
+		return (-1);
+	next = '\0';
+	if (li_make_link(new_link, board, line, stick + 1) < 0)
+		return (ft_array_pop0(links_a));
+	*stick = '-';
+	*nl = '\n';
+	return (0);
 }
 
 /*
@@ -34,8 +55,8 @@ int				parse_links(t_li_board *board)
 			return (ft_free0(line) + -1);
 		if (li_parsing_should_line_be_ignored(line))
 			continue ;
-		if (parse_link(line) < 0)
-			return (ft_free0(*(char**)ft_array_pop(board->output_a)) + -1);
+		if ((rst = parse_link(line)) != 0)
+			return (ft_free0(*(char**)ft_array_pop(board->output_a)) + rst);
 	}
 	board->links = links_a->items;
 	board->links_count = links_a->item_count;

@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 18:26:29 by bleplat           #+#    #+#             */
-/*   Updated: 2020/02/28 14:50:40 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/02/29 16:13:44 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,22 @@ t_li_board					*li_board_create(void)
 }
 
 /*
+** Clean all rooms in a list.
+*/
+
+void						clean_rooms_in_list(t_li_room *rooms, int cnt)
+{
+	int i;
+
+	i = 0;
+	while (i < cnt)
+	{
+		li_room_clean0(rooms[i]);
+		i++;
+	}
+}
+
+/*
 ** Clean a t_li_board struct.
 */
 
@@ -49,7 +65,10 @@ void						li_board_destroy(t_li_board **board)
 	if (!(*board))
 		return ;
 	if ((*board)->rooms)
+	{
+		clean_rooms_in_list((*board)->rooms, (*board)->rooms_count);
 		ft_free0((*board)->rooms);
+	}
 	if ((*board)->links)
 		ft_free0((*board)->links);
 	if ((*board)->output_a)

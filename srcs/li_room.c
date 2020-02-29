@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   li_board_parse_input.c                             :+:      :+:    :+:   */
+/*   li_room.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/27 18:35:04 by bleplat           #+#    #+#             */
-/*   Updated: 2020/02/29 16:19:12 by bleplat          ###   ########.fr       */
+/*   Created: 2020/02/29 15:32:32 by bleplat           #+#    #+#             */
+/*   Updated: 2020/02/29 16:03:02 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-#include "li_board.h"
-#include "li_link.h"
-#include "li_room.h"
-
-
-
 /*
-** Parse the ant count, rooms and links, from stdin, to a board.
-** Return a negative number on error.
-** Return a positive number on non-critical error.
+** Clean a room.
+** As room contains malloced pointers, it is necessary to clean them right.
 */
 
-int				li_board_parse_input(t_li_board *board)
+int							li_room_clean0(t_room *room)
 {
-	int		rst;
+	ft_free0(room->name);
+	room->name = NULL;
+	room->x = 0;
+	room->y = 0;
+	return (0);
+}
 
-	if ((rst = li_parse_ants(board)) != 0)
-		return (rst);
-	if ((rst = li_parse_rooms(board)) != 0)
-		return (rst);
-	if ((rst = li_parse_links(board)) != 0)
-		return (rst);
+/*
+** Pop the last room in ana array and clean it.
+*/
+
+int								li_room_popclean0(t_array *rooms_a);
+{
+	t_li_room		*room;
+
+	room = (t_li_room*)ft_array_pop(rooms_a);
+	if (room)
+		li_room_clean0(room);
 	return (0);
 }
