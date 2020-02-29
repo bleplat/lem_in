@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 17:45:14 by bleplat           #+#    #+#             */
-/*   Updated: 2020/02/28 14:49:00 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/02/29 20:10:29 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		main_resolve(t_li_board *board)
 {
 	(void)board;
 	// TODO: Resolve lem_in.
-	return (-42);
+	return (0);
 }
 
 /*
@@ -52,11 +52,11 @@ int		main(int argc, char **argv)
 	(void)argc;
 	(void)argv;
 	if (!(board = li_board_create()))
-		return (-li_perror(-1, NULL));
+		return (ft_abs(li_perror(-1, NULL)));
 	if ((rst = main_parse_resolve(board)) < 0)
 	{
 		li_board_destroy(&board);
-		return (-li_perror(rst, NULL));
+		return (ft_abs(li_perror(rst, NULL)));
 	}
 	li_print_input(board);
 	li_print_result(board);

@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 19:11:09 by bleplat           #+#    #+#             */
-/*   Updated: 2020/02/29 16:22:14 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/02/29 19:55:36 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,32 @@
 
 # define LI_MAXLINELEN 32000
 
-# define LI_ERROR_ANTS_BAD_COUNT -126
-# define LI_ERROR_ANTS_READ_FAIL -125
+/*
+** Parsing error codes.
+** Negative numbers are critical and abort lem_in
+** Positive Numbers are non-critical and represent an error but the data is
+** proceceed anyway.
+*/
+
+# define LI_ERROR_NOTHING_TO_READ 126
+# define LI_ERROR_ANTS_CNT -125
 # define LI_ERROR_ROOMS_DUPLICATE -124
-# define LI_ERROR_ROOMS_SYNTAX -123
+# define LI_ERROR_ROOMS_SYNTAX 123
 # define LI_ERROR_ROOMS_BAD_X -122
 # define LI_ERROR_ROOMS_BAD_Y -121
 # define LI_ERROR_LINKS_SYNTAX 120
 
-
 # define LI_CMD_START "##start\n"
 # define LI_CMD_END "##end\n"
 
-int						li_perror(int code, const char *message);
-void					li_print_input(t_li_board *board);
-void					li_print_result(t_li_board *board);
+int				li_parsing_should_line_be_ignored(char *line);
+
+int				li_perror(int code, const char *message);
+void			li_print_input(t_li_board *board);
+void			li_print_result(t_li_board *board);
+
+int				li_parse_ants(t_li_board *b);
+int				li_parse_room(t_li_board *b, t_array *rooms_a, char *line);
+int				li_parse_link(t_li_board *b, t_array *links_a, char *line);
 
 #endif

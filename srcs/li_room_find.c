@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 19:15:36 by bleplat           #+#    #+#             */
-/*   Updated: 2020/02/29 15:31:35 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/02/29 20:24:59 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 ** Return NULL if the room is not found.
 */
 
-t_li_room		*li_room_find(t_room *rooms, int count, char *name)
+t_li_room		*li_room_find(t_room *rooms, int count, const char *name)
 {
 	int		i_room;
 

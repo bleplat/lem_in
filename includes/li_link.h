@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 16:57:37 by bleplat           #+#    #+#             */
-/*   Updated: 2020/02/27 19:39:04 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/02/29 17:40:50 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@ struct						s_li_link
 	t_li_room	*p_room_a;
 	t_li_room	*p_room_b;
 };
+
+void						li_link_dump(t_li_link *link);
 
 #endif

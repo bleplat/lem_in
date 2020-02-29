@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 16:11:57 by bleplat           #+#    #+#             */
-/*   Updated: 2020/02/28 15:26:15 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/02/29 18:59:42 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ struct						s_li_board
 	int				links_count;
 };
 
+void						li_board_dump(t_li_board *board);
+
 /*
 ** A t_li_board must be created and destroyed properly before use.
 */
@@ -44,17 +46,14 @@ t_li_board					*li_board_create(void);
 int							li_board_parse_input(t_li_board *b);
 void						li_board_destroy(t_li_board **b);
 
-int							li_parse_ants(t_li_board *b);
-int							li_parse_rooms(t_li_board *b);
-int							li_parse_links(t_li_board *b);
-
-char						*li_parsing_nextline(t_li_board *b);
+//char						*li_parsing_nextline(t_li_board *b);
 
 /*
 ** Helpers
 */
 
 int							li_board_add_output(t_li_board *b, const char *l);
+int							li_board_pop_output0(t_li_board *b);
 int							li_make_link(t_li_link *out,
 											t_board *brd, char *r1, char *r2);
 

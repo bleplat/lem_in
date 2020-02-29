@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   li_print_input.c                                   :+:      :+:    :+:   */
+/*   li_board_pop_output.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/28 14:33:19 by bleplat           #+#    #+#             */
-/*   Updated: 2020/02/29 18:16:07 by bleplat          ###   ########.fr       */
+/*   Created: 2020/02/29 16:42:37 by bleplat           #+#    #+#             */
+/*   Updated: 2020/02/29 17:06:13 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "li.h"
+#include "li_board.h"
 
 /*
-** Print the content of board->output_a wich is supposed to have aquiered data
-** from the input, but have to be reprinted as output before showing
-** the results.
+** Remove AND FREE the last input added to the board's list.
+** Return 0.
 */
 
-void						li_print_input(t_li_board *board)
+int							li_board_pop_output0(t_li_board *b)
 {
-	int		i;
+	char		**str_p;
 
-	i = 0;
-	while (i < board->output_a->item_count)
-	{
-		ft_putstr((char*)*(char**)ft_array_at(board->output_a, i));
-		i++;
-	}
+	str_p = (char**)ft_array_pop(b->output_a);
+	if (str_p)
+		ft_free0(*str_p);
+	return (0);
 }
