@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 19:53:38 by bleplat           #+#    #+#             */
-/*   Updated: 2020/02/27 20:27:54 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/02/29 20:32:40 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 int					li_perror(int code, const char *message)
 {
 	(void)message;
-	if (code == 0 && message == NULL)
+	if (message == NULL)
 		ft_dprintf(2, "ERROR");
+	else
+		ft_dprintf(2, message);
 	return (code);
 }
