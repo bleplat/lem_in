@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 18:26:29 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/01 19:47:19 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/01 20:13:39 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,23 +95,24 @@ void					li_board_dump(t_li_board *board)
 {
 	int		i;
 
-	ft_printf("{bold}{orange}TODO: PRINT RESULTS{reset}\n");
-	ft_printf("{bluw}board->options == %d\n", board->options);
-	ft_printf("{cyan}board->ants_count == %d\n", board->ants_count);
-	ft_printf("{blue}board->rooms_count == %d\n", board->rooms_count);
+	ft_printf("\n  {bold}{underline}{light white}BOARD DUMP: {}\n\n");
+	ft_printf("  {blue}board->options == %d\n{}", board->options);
+	ft_printf("  {light cyan}board->ants_count == %d\n", board->ants_count);
+	ft_printf("  {dim}{orange}board->rooms_count == %d\n", board->rooms_count);
 	i = 0;
 	while (i < board->rooms_count)
 	{
 		li_room_dump(&board->rooms[i]);
 		i++;
 	}
-	ft_printf("{orange}board->i_room_start == %d\n", board->i_room_start);
-	ft_printf("{orange}board->i_room_end == %d\n", board->i_room_end);
-	ft_printf("{blue}board->links_count == %d\n", board->links_count);
+	ft_printf("  {maroon}board->i_room_start == %d\n", board->i_room_start);
+	ft_printf("  {maroon}board->i_room_end == %d\n", board->i_room_end);
+	ft_printf("  {green}board->links_count == %d\n", board->links_count);
 	i = 0;
 	while (i < board->links_count)
 	{
 		li_link_dump(&board->links[i]);
 		i++;
 	}
+	ft_printf("  {}\n");
 }

@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 15:32:32 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/01 16:13:42 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/01 20:10:15 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,9 @@ void						li_room_dump(t_li_room *room)
 	int		x;
 	int		y;
 
+	ft_printf("{}");
 	x = room->x;
 	y = room->y;
-	ft_printf("{orange}room %d: %s (%d; %d){}\n", room->index, room->name, x, y);
+	ft_printf("  {bold}{orange}%6d: %-8s   (%d; %d){}\n",
+				room->index, room->name, x, y);
 }
