@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 18:35:04 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/01 18:25:16 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/01 19:11:55 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,25 +27,30 @@ void	update_lists(t_li_board *board, t_array *rooms_a, t_array *links_a)
 }
 
 /*
-** Set index of room start and room end, unless they are already set,
-** in wich case this function return non-zero.
-** Return 0 if there is no issue.
+** Set index of room start and room end, unless they are already set.
+** Return 1 if this was a valid command.
+** Return 0 if this was a valid command.
+** Return -1 if this was a valid command.
+** Return
 */
 
 // TODO: check when start and end are lasts
+// TODO: use counts directly to not use unstable ints from board ?
 int		check_start_end(t_li_board *board, char *line)
 {
-	if (ft_strcmp(line, "##start\n"))
+	if (ft_strcmp(line, "##start\n") == 0)
 	{
 		if (board->i_room_start >= 0)
 			return (LI_ERROR_ROOMS_CMD);
 		board->i_room_start = board->rooms_count;
+		return (1);
 	}
-	if (ft_strcmp(line, "##end\n"))
+	if (ft_strcmp(line, "##end\n") == 0)
 	{
 		if (board->i_room_end >= 0)
 			return (LI_ERROR_ROOMS_CMD);
 		board->i_room_end = board->rooms_count;
+		return (1);
 	}
 	return (0);
 }
@@ -69,12 +74,17 @@ int		parse_each_line(t_li_board *board, t_array *rooms_a, t_array *links_a)
 		{
 			if ((rst = check_start_end(board, line)) < 0)
 				return (li_board_pop_output0(board) + rst);
+			if (rst != 1)
+			{
 			if ((rst1 = li_parse_room(board, rooms_a, line)) != 0)
 				step++;
+			}
+			else rst = 0;
 		}
+		update_lists(board, rooms_a, links_a);
+		
 		if (rst1 < 0)
 			return (li_board_pop_output0(board) + rst1);
-		update_lists(board, rooms_a, links_a);
 		if (step == 1)
 			if ((rst = li_parse_link(board, links_a, line)) != 0)
 				return (li_board_pop_output0(board)
