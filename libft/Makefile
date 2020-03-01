@@ -6,7 +6,7 @@
 #    By: bleplat <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 09:05:04 by bleplat           #+#    #+#              #
-#    Updated: 2020/03/01 16:28:35 by bleplat          ###   ########.fr        #
+#    Updated: 2020/03/01 17:16:28 by bleplat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -346,11 +346,31 @@ LDFLAGS = -L $(LIBFT_DIR) -lft
 ###      R U L E S      ###
 ###########################
 
+.PHONY: upgrade_and_all
+upgrade_and_all: upgrade all
+
 .PHONY: all
 all: $(NAME)
 
+.PHONY: update
+update:
+	@printf "\e[95m" || true
+	@git remote update || true
+	@git status -uno
+	@printf "\e[0m" || true
+
+.PHONY: upgrade
+upgrade:
+	@printf "\e[95m" || true
+	@sh upgrade_check.sh
+	@printf "\e[0m" || true
+
 .PHONY: optimized
 optimized: CFLAGS += -o3
+optimized: all
+
+.PHONY: debug
+optimized: LDFLAGS += -L. -lftmo -rdynamic
 optimized: all
 
 .PHONY: $(NAME)
