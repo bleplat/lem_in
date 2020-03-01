@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 19:11:09 by bleplat           #+#    #+#             */
-/*   Updated: 2020/02/29 19:55:36 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/01 18:24:03 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,14 @@
 # define LI_ERROR_ROOMS_SYNTAX 123
 # define LI_ERROR_ROOMS_BAD_X -122
 # define LI_ERROR_ROOMS_BAD_Y -121
-# define LI_ERROR_LINKS_SYNTAX 120
+# define LI_ERROR_ROOMS_BAD_NAME -120
+# define LI_ERROR_LINKS_SYNTAX 110
+# define LI_ERROR_ROOMS_CMD -109
+# define LI_ERROR_NO_START -108
+# define LI_ERROR_NO_END -107
+# define LI_ERROR_START_IS_END -106
+
+# define LI_NEXTSTEP 16
 
 # define LI_CMD_START "##start\n"
 # define LI_CMD_END "##end\n"

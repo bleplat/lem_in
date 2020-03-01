@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 15:20:19 by bleplat           #+#    #+#             */
-/*   Updated: 2020/02/29 20:27:56 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/01 18:10:14 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,48 +38,5 @@ int				li_parse_link(t_li_board *board, t_array *links_a, char *line)
 	*nl = '\n';
 	return (0);
 }
-
-/*
-** Parse links from input until it's no longer possible.
-** Output to links_a.
-*/
-
-//TODO: delete
-int				parse_each_links(t_li_board *board, t_array *links_a)
-{
-	int			rst;
-	char		*line;
-
-	while ((rst = ft_readtonl(0, &line, LI_MAXLINELEN) > 0))
-	{
-		if (li_board_add_output(board, line) < 0)
-			return (ft_free0(line) + -1);
-		if (li_parsing_should_line_be_ignored(line))
-			continue ;
-		if ((rst = li_parse_link(board, links_a, line)) != 0)
-			return (ft_free0(*(char**)ft_array_pop(board->output_a)) + rst);
-	}
-	return (rst);
-}
-
-/*
-** Parse links from input until it's no longer possible.
-** Output to board.
-*/
-
-//TODO: delete
-int				li_parse_links(t_li_board *board)
-{
-	int			rst;
-	t_array		*links_a;
-
-	links_a = ft_array_new(sizeof(t_li_link), 32);
-	if (!links_a)
-		return (-1);
-	rst = parse_each_links(board, links_a);
-	board->links = links_a->items;
-	board->links_count = links_a->item_count;
-	ft_free0(links_a);
-	return (rst);
-}
 // TODO: check why input have to be closed twice zhen invalid mouse count
+// TODO: check duplicate links

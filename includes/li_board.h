@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 16:11:57 by bleplat           #+#    #+#             */
-/*   Updated: 2020/02/29 18:59:42 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/01 15:55:17 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ struct						s_li_board
 	int				ants_count;
 	t_li_room		*rooms;
 	int				rooms_count;
+	int				i_room_start;
+	int				i_room_end;
 	t_li_link		*links;
 	int				links_count;
 };

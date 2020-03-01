@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 18:26:29 by bleplat           #+#    #+#             */
-/*   Updated: 2020/02/29 19:56:18 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/01 18:23:39 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ t_li_board					*li_board_create(void)
 	to_return->ants_count = -1;
 	to_return->rooms = NULL;
 	to_return->rooms_count = -1;
+	to_return->i_room_start = -1;
+	to_return->i_room_end = -1;
 	to_return->links = NULL;
 	to_return->links_count = -1;
 	if (!(to_return->output_a = ft_array_new(sizeof(const char*), 32)))
@@ -81,6 +83,8 @@ void						li_board_destroy(t_li_board **board)
 		}
 		ft_array_del(&((*board)->output_a));
 	}
+	free(*board);
+	*board = NULL;
 }
 
 /*
@@ -101,6 +105,8 @@ void					li_board_dump(t_li_board *board)
 		li_room_dump(&board->rooms[i]);
 		i++;
 	}
+	ft_printf("{orange}board->i_room_start == %d\n", board->i_room_start);
+	ft_printf("{orange}board->i_room_end == %d\n", board->i_room_end);
 	ft_printf("{blue}board->links_count == %d\n", board->links_count);
 	i = 0;
 	while (i < board->links_count)

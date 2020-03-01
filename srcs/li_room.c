@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 15:32:32 by bleplat           #+#    #+#             */
-/*   Updated: 2020/02/29 20:13:09 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/01 16:13:42 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int							li_room_clean0(t_room *room)
 ** Pop the last room in ana array and clean it.
 */
 
-int								li_room_popclean0(t_array *rooms_a)
+int							li_room_popclean0(t_array *rooms_a)
 {
 	t_li_room		*room;
 
@@ -40,6 +40,26 @@ int								li_room_popclean0(t_array *rooms_a)
 	if (room)
 		li_room_clean0(room);
 	return (0);
+}
+
+/*
+** Tell if a room name is valid.
+*/
+
+
+int							li_room_is_name_valid(const char *name)
+{
+	if (name[0] == '#' || name[0] == 'L')
+		return (0);
+	if (!ft_isstrprint(name))
+		return (0);
+	if (ft_strchr(name, ' '))
+		return (0);
+	if (ft_strchr(name, '-'))
+		return (0);
+	if (ft_strchr(name, '\n'))
+		return (0);
+	return (1);
 }
 
 /*
