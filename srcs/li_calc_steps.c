@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 13:31:01 by jthierce          #+#    #+#             */
-/*   Updated: 2020/02/29 18:23:25 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/03/01 18:43:04 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void li_delete_step(int *calc, int step_destroy)
 	}
 }
 
-static int	li_add_step(int *calc, int step_add)
+static void	li_add_step(int *calc, int step_add)
 {
 	int i;
 
@@ -61,9 +61,9 @@ static int	li_add_step(int *calc, int step_add)
 
 static int li_calc(t_calc_step step, t_board board)
 {
-	int *calc;
-	int	i;
-	int j;
+	int		*calc;
+	size_t	i;
+	int		j;
 
 	i = -1;
 	if (!(calc = (int *)malloc(sizeof(int) * step.size)))
@@ -91,7 +91,7 @@ static int li_calc(t_calc_step step, t_board board)
 
 int			li_calc_step(t_board board, int status)
 {
-	static t_calc_step step = {0, NULL, 0};
+	static t_calc_step	step = {0, NULL, 0};
 	t_room				*room;
 	int 				i;
 
@@ -102,7 +102,7 @@ int			li_calc_step(t_board board, int status)
 		free(step.distance);
 		return (step.step);
 	}
-	if (ft_memrealloc(&(step.distance), &(step.size), step.size + 1))
+	if (ft_memrealloc((void **)&(step.distance), &(step.size), step.size + 1))
 		return (-1);
 	while (room->prev != NULL)
 	{
@@ -116,7 +116,7 @@ int			li_calc_step(t_board board, int status)
 		free(step.distance);
 		return (-1);
 	}
-	if (i >= step.step);
+	if (i >= step.step)
 	{
 		step.step = i;
 		return (0);

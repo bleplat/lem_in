@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 13:34:38 by jthierce          #+#    #+#             */
-/*   Updated: 2020/02/28 15:04:00 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/03/01 16:46:06 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,6 @@ static	int li_bfs_type_c(t_board board, int **matrice, int *queu, int j)
 			li_priority_queu(queu + i, board.rooms[queu[0]].link[i]);
 			j++;
 			board.rooms[board.rooms[queu[0]].link[i]].status = 6;
-			board.rooms[board.rooms[queu[0]].link[i]].prev =
-			&board.rooms[queu[0]];
 		}
 	}
 	return (j);
