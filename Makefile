@@ -6,7 +6,7 @@
 #    By: bleplat <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 09:05:04 by bleplat           #+#    #+#              #
-#    Updated: 2020/02/29 20:50:26 by bleplat          ###   ########.fr        #
+#    Updated: 2020/03/01 17:46:04 by bleplat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,6 +87,19 @@ LDFLAGS += -L $(LIBFT_DIR) -lft
 .PHONY: all
 all: $(NAME)
 
+.PHONY: update
+update:
+	@printf "\e[95m" || true
+	git remote update
+	git status -uno
+	@printf "\e[0m" || true
+
+.PHONY: upgrade
+upgrade:
+	@printf "\e[95m" || true
+	git pull
+	@printf "\e[0m" || true
+
 .PHONY: debug
 debug: LDFLAGS += -L. -lftmo -rdynamic
 debug: $(LIBFTMO) all
@@ -147,6 +160,10 @@ re: fclean all
 ###########################
 ###  D O C   R U L E S  ###
 ###########################
+
+.PHONY: geterror
+geterror:
+	grep _ERROR_ includes/li.h
 
 .PHONY: help
 help:
