@@ -6,11 +6,13 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 13:56:04 by jthierce          #+#    #+#             */
-/*   Updated: 2020/02/28 14:47:09 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/03/01 19:10:21 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+
+#include "libft.h"
 
 /*
 **Matrice Value:
@@ -42,14 +44,13 @@ int		**li_create_matrice(int size_room)
 		return (NULL);
 	while (++i < size_room)
 	{
-		if (!(matrice[i] = (int *)malloc(sizeof(int) * size_room)))
+		if (!(matrice[i] = (int *)ft_memalloc(sizeof(int) * size_room)))
 		{
 			while (--i >= 0)
 				free(matrice[i]);
 			free(matrice);
 			return (NULL);
 		}
-		ft_bzero(matrice[i], size_room);
 	}
 	return (matrice);
 }

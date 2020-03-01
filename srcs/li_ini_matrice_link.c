@@ -6,12 +6,11 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 14:49:41 by jthierce          #+#    #+#             */
-/*   Updated: 2020/02/29 14:50:40 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/03/01 18:37:24 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "li_room.h"
-#include "li_board.h"
+#include "li_resolve.h"
 
 int			li_free_link(t_board board)
 {
@@ -20,8 +19,8 @@ int			li_free_link(t_board board)
 	i = -1;
 	while (++i < board.rooms_count)
 	{
-		if (board.rooms[i].index != NULL)
-			free(board.rooms[i].index);
+		if (board.rooms[i].link != NULL)
+			free(board.rooms[i].link);
 	}
 	return (-1);
 }
@@ -30,7 +29,6 @@ static int	li_find_link(int index, int **matrice, t_board board)
 {
 	t_room *room;
 	int i;
-	int	buff;
 
 	i = -1;
 	while (++i < board.links_count)
@@ -40,14 +38,14 @@ static int	li_find_link(int index, int **matrice, t_board board)
 			room = &board.rooms[index];
 			matrice[index][board.links[i].i_room_b] = 1;
 			matrice[board.links[i].i_room_b][index] = 1;
-			if (li_memrealloc(&(room->link), sizeof(int) * room->count_link,
-			sizeof(int) * room->count_link + 1))
+			if (li_memrealloc((void **)&(room->link), sizeof(int) *
+			room->count_link, sizeof(int) * room->count_link + 1))
 				return(li_free_link(board));
 			room->link[room->count_link] = board.links[i].i_room_b;
 			room->count_link++;
 			room = board.links[i].p_room_b;
-			if (li_memrealloc(&(room->link), sizeof(int) * room->count_link,
-			sizeof(int) * room->count_link + 1))
+			if (li_memrealloc((void **)&(room->link), sizeof(int) *
+			room->count_link, sizeof(int) * room->count_link + 1))
 				return(li_free_link(board));
 			room->link[room->count_link] = index;
 			room->count_link++;

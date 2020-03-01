@@ -6,11 +6,13 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 14:50:23 by jthierce          #+#    #+#             */
-/*   Updated: 2020/02/29 14:51:11 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/03/01 18:39:24 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+
+#include "libft.h"
 
 int	li_memrealloc(void **mem, size_t previous_size, size_t new_size)
 {

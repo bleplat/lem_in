@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   li.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 19:11:09 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/01 18:24:03 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/01 19:29:00 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,7 @@ void			li_print_result(t_li_board *board);
 int				li_parse_ants(t_li_board *b);
 int				li_parse_room(t_li_board *b, t_array *rooms_a, char *line);
 int				li_parse_link(t_li_board *b, t_array *links_a, char *line);
+
+int				li_resolve(t_board board);
 
 #endif
