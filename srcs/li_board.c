@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 18:26:29 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/01 18:23:39 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/01 19:47:19 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ t_li_board					*li_board_create(void)
 	if (!(to_return = malloc(sizeof(t_li_board))))
 		return (NULL);
 	to_return->options = 0;
-	to_return->ants_count = -1;
+	to_return->ants_count = -888;
 	to_return->rooms = NULL;
-	to_return->rooms_count = -1;
-	to_return->i_room_start = -1;
-	to_return->i_room_end = -1;
+	to_return->rooms_count = -777;
+	to_return->i_room_start = -666;
+	to_return->i_room_end = -555;
 	to_return->links = NULL;
-	to_return->links_count = -1;
+	to_return->links_count = -444;
 	if (!(to_return->output_a = ft_array_new(sizeof(const char*), 32)))
 		return (ft_freen(to_return));
 	return (to_return);
