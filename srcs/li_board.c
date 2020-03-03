@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 18:26:29 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/01 19:34:32 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/03/03 16:31:49 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ t_li_board					*li_board_create(void)
 	if (!(to_return = malloc(sizeof(t_li_board))))
 		return (NULL);
 	to_return->options = 0;
-	to_return->ants_count = -1;
+	to_return->ants_count = -888;
 	to_return->rooms = NULL;
-	to_return->rooms_count = -1;
-	to_return->i_room_start = 0;
-	to_return->i_room_end = 1;
+	to_return->rooms_count = -777;
+	to_return->i_room_start = -666;
+	to_return->i_room_end = -555;
 	to_return->links = NULL;
-	to_return->links_count = -1;
+	to_return->links_count = -444;
 	if (!(to_return->output_a = ft_array_new(sizeof(const char*), 32)))
 		return (ft_freen(to_return));
 	return (to_return);
@@ -95,23 +95,24 @@ void					li_board_dump(t_li_board *board)
 {
 	int		i;
 
-	ft_printf("{bold}{orange}TODO: PRINT RESULTS{reset}\n");
-	ft_printf("{bluw}board->options == %d\n", board->options);
-	ft_printf("{cyan}board->ants_count == %d\n", board->ants_count);
-	ft_printf("{blue}board->rooms_count == %d\n", board->rooms_count);
+	ft_printf("\n  {bold}{underline}{light white}BOARD DUMP: {}\n\n");
+	ft_printf("  {blue}board->options == %d\n{}", board->options);
+	ft_printf("  {light cyan}board->ants_count == %d\n", board->ants_count);
+	ft_printf("  {dim}{orange}board->rooms_count == %d\n", board->rooms_count);
 	i = 0;
 	while (i < board->rooms_count)
 	{
 		li_room_dump(&board->rooms[i]);
 		i++;
 	}
-	ft_printf("{orange}board->i_room_start == %d\n", board->i_room_start);
-	ft_printf("{orange}board->i_room_end == %d\n", board->i_room_end);
-	ft_printf("{blue}board->links_count == %d\n", board->links_count);
+	ft_printf("  {maroon}board->i_room_start == %d\n", board->i_room_start);
+	ft_printf("  {maroon}board->i_room_end == %d\n", board->i_room_end);
+	ft_printf("  {green}board->links_count == %d\n", board->links_count);
 	i = 0;
 	while (i < board->links_count)
 	{
 		li_link_dump(&board->links[i]);
 		i++;
 	}
+	ft_printf("  {}\n");
 }
