@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 18:35:04 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/03 17:18:44 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/03 18:50:24 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int		parse_each_line(t_li_board *board, t_array *rooms_a, t_array *links_a)
 	char	*line;
 
 	// todo: handle start/end via index, then flatten
+	rst1 = 0;
 	step = 0;
 	while ((rst = ft_readtonl(0, &line, LI_MAXLINELEN)))
 	{
