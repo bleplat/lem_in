@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 19:11:09 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/01 19:29:00 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/03/03 17:18:28 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 # define LI_ERROR_NO_START -108
 # define LI_ERROR_NO_END -107
 # define LI_ERROR_START_IS_END -106
+# define LI_ERROR_NO_LINKS -105
 
 # define LI_NEXTSTEP 16
 

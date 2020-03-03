@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 16:11:57 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/01 15:55:17 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/03 16:35:23 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ t_li_board					*li_board_create(void);
 int							li_board_parse_input(t_li_board *b);
 void						li_board_destroy(t_li_board **b);
 
-//char						*li_parsing_nextline(t_li_board *b);
+void						li_board_parsing_post(t_li_board *board);
 
 /*
 ** Helpers

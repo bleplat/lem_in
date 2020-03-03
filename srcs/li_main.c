@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 17:45:14 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/01 19:31:20 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/03/03 18:41:33 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int		main_parse_resolve(t_li_board *board)
 
 	if ((rst = li_board_parse_input(board)) < 0)
 		return (rst);
+	li_board_parsing_post(board);
 	li_board_dump(board);
 	if ((rst = main_resolve(board)) < 0)
 		return (rst);
