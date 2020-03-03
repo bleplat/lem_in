@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   li_board.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 18:26:29 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/01 18:23:39 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/01 19:34:32 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ t_li_board					*li_board_create(void)
 	to_return->ants_count = -1;
 	to_return->rooms = NULL;
 	to_return->rooms_count = -1;
-	to_return->i_room_start = -1;
-	to_return->i_room_end = -1;
+	to_return->i_room_start = 0;
+	to_return->i_room_end = 1;
 	to_return->links = NULL;
 	to_return->links_count = -1;
 	if (!(to_return->output_a = ft_array_new(sizeof(const char*), 32)))
