@@ -6,7 +6,7 @@
 #    By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 19:42:40 by bleplat           #+#    #+#              #
-#    Updated: 2020/03/03 19:42:41 by bleplat          ###   ########.fr        #
+#    Updated: 2020/03/03 20:03:32 by bleplat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ fi
 # Run with all files in the folder:
 for f in $DIR/* ; do
 	printf "\n\e[35mrunning ./lem-in < $f\e[0m\n" >> $RST_FILE 2>&1
-	./lem_in < $f >> $RST_FILE 2>&1
+	./lem-in < $f >> $RST_FILE 2>&1
 done
 
 # Show results
