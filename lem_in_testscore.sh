@@ -6,7 +6,7 @@
 #    By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 19:42:20 by bleplat           #+#    #+#              #
-#    Updated: 2020/03/03 19:42:32 by bleplat          ###   ########.fr        #
+#    Updated: 2020/03/03 19:45:16 by bleplat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,9 +41,9 @@ for (( i=0; i<$CNT; ++i)); do
 	LINES=$(cat map.tmp | wc -l | sed "s/^ *\(.*\)$/\1/")
 	printf "\e[97mTesting a map of $LINES lines:\n\e[0m"
 	printf "\e[92mExpect: $EXPECTED\n\e[0m"
-	(/usr/bin/time -p ./lem-in < map.tmp) 1> rst.tmp 2>&1
+	(/usr/bin/time -p ./lem-in < map.tmp) 1> rst.tmp 2> rst_time.tmp
 	RST=$(cat rst.tmp | grep '^L' | wc -l | sed "s/^ *\(.*\)$/\1/")
-	TIME=$(cat rst.tmp | tail -n 3)
+	TIME=$(cat rst_time.tmp)
 	printf "\e[93mResult: $RST\n\e[0m"
 	printf "\e[37min $TIME\n\e[0m"
 	printf "\n"
