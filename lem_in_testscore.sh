@@ -29,8 +29,11 @@ for (( i=0; i<$CNT; ++i)); do
 	LINES=$(cat map.tmp | wc -l | sed "s/^ *\(.*\)$/\1/")
 	printf "\e[97mTesting a map of $LINES lines:\n\e[0m"
 	printf "\e[92mExpect: $EXPECTED\n\e[0m"
-	RST=$(./lem-in < map.tmp | grep '^L' | wc -l | sed "s/^ *\(.*\)$/\1/")
+	(/usr/bin/time -p ./lem-in < map.tmp) 1> rst.tmp 2>&1
+	RST=$(cat rst.tmp | grep '^L' | wc -l | sed "s/^ *\(.*\)$/\1/")
+	TIME=$(cat rst.tmp | tail -n 3)
 	printf "\e[93mResult: $RST\n\e[0m"
+	printf "\e[37min $TIME\n\e[0m"
 	printf "\n"
 done
 
