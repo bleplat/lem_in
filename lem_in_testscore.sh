@@ -6,7 +6,7 @@
 #    By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 19:42:20 by bleplat           #+#    #+#              #
-#    Updated: 2020/03/03 19:45:16 by bleplat          ###   ########.fr        #
+#    Updated: 2020/03/03 19:46:27 by bleplat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,5 @@ for (( i=0; i<$CNT; ++i)); do
 	printf "\e[37min $TIME\n\e[0m"
 	printf "\n"
 done
-
 
 exit 0
