@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 17:45:14 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/01 18:29:09 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/03 16:46:14 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int		main_parse_resolve(t_li_board *board)
 
 	if ((rst = li_board_parse_input(board)) < 0)
 		return (rst);
+	li_board_parsing_post(board);
 	if ((rst = main_resolve(board)) < 0)
 		return (rst);
 	return (0);

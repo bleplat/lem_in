@@ -6,7 +6,7 @@
 #    By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 09:05:04 by bleplat           #+#    #+#              #
-#    Updated: 2020/03/01 19:52:08 by bleplat          ###   ########.fr        #
+#    Updated: 2020/03/03 16:45:49 by bleplat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ FNT =		li_main.c \
 			li_room.c \
 			li_link.c \
 			li_board_parse_input.c \
+			li_board_parsing_post.c \
 			li_parsing_should_line_be_ignored.c \
 			li_parse_ants.c \
 			li_parse_rooms.c \
