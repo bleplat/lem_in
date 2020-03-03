@@ -6,10 +6,11 @@
 #    By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 19:42:40 by bleplat           #+#    #+#              #
-#    Updated: 2020/03/03 20:03:32 by bleplat          ###   ########.fr        #
+#    Updated: 2020/03/03 22:11:50 by bleplat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+rm -f *.tmp
 RST_FILE=lem_in_runfolder_results.tmp
 
 DIR=$1
