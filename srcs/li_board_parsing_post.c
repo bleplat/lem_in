@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 16:35:38 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/03 16:46:36 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/03 16:53:10 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,6 @@ void						move_end_first(t_li_board *brd)
 	brd->i_room_end = 1;
 }
 
-void						remove_double_links(t_li_board *brd)
-{
-	(void)brd;
-}
-
 /*
 ** Perform changes on the board's parsed data to make it compliant with what
 ** the resolve function expet as an input.
@@ -50,5 +45,4 @@ void						li_board_parsing_post(t_li_board *board)
 {
 	move_start_first(board);
 	move_end_first(board);
-	remove_double_links(board);
 }
