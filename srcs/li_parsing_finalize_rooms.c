@@ -6,13 +6,13 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 16:35:38 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/03 16:53:10 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/04 17:11:11 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "li.h"
 
-void						move_start_first(t_li_board *brd)
+static void				move_start_first(t_li_board *brd)
 {
 	t_li_room		swp;
 
@@ -24,7 +24,7 @@ void						move_start_first(t_li_board *brd)
 	brd->i_room_start = 0;
 }
 
-void						move_end_first(t_li_board *brd)
+static void				move_end_first(t_li_board *brd)
 {
 	t_li_room		swp;
 
@@ -39,10 +39,19 @@ void						move_end_first(t_li_board *brd)
 /*
 ** Perform changes on the board's parsed data to make it compliant with what
 ** the resolve function expet as an input.
+** Return 0 if everything went right.
+** Return an error if the data is not correct.
 */
 
-void						li_board_parsing_post(t_li_board *board)
+int						li_parsing_finalize_rooms(t_li_board *board)
 {
+	if (board->i_room_start < 0 || board->i_room_start >= board->rooms_count)
+		return (LI_ERROR_NO_START);
+	if (board->i_room_end < 0 || board->i_room_end >= board->rooms_count)
+		return (LI_ERROR_NO_END);
+	if (board->i_room_start == board->i_room_end)
+		return (LI_ERROR_START_IS_END);
 	move_start_first(board);
 	move_end_first(board);
+	return (0);
 }

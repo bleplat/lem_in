@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   li_parse_links.c                                   :+:      :+:    :+:   */
+/*   li_parse_link.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 15:20:19 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/01 18:10:14 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/04 16:30:16 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int				li_parse_link(t_li_board *board, t_array *links_a, char *line)
 	*nl = '\0';
 	if (!(new_link = ft_array_newitem(links_a)))
 		return (-1);
-	if (li_make_link(new_link, board, line, stick + 1) < 0)
-		return (ft_array_pop0(links_a));
+	if (li_make_link(new_link, board, line, stick + 1) != 0)
+		return (ft_array_pop0(links_a) + LI_ERROR_LINKS_ROOM_DO_NOT_EXIST);
 	*stick = '-';
 	*nl = '\n';
 	return (0);

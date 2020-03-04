@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 19:11:09 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/03 17:18:28 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/04 16:44:26 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,13 @@
 # define LI_ERROR_ROOMS_BAD_Y -121
 # define LI_ERROR_ROOMS_BAD_NAME -120
 # define LI_ERROR_LINKS_SYNTAX 110
-# define LI_ERROR_ROOMS_CMD -109
 # define LI_ERROR_NO_START -108
 # define LI_ERROR_NO_END -107
 # define LI_ERROR_START_IS_END -106
 # define LI_ERROR_NO_LINKS -105
+# define LI_ERROR_ROOMS_START_CMD -103
+# define LI_ERROR_ROOMS_END_CMD -102
+# define LI_ERROR_LINKS_ROOM_DO_NOT_EXIST 101
 
 # define LI_NEXTSTEP 16
 
@@ -54,6 +56,7 @@ void			li_print_result(t_li_board *board);
 int				li_parse_ants(t_li_board *b);
 int				li_parse_room(t_li_board *b, t_array *rooms_a, char *line);
 int				li_parse_link(t_li_board *b, t_array *links_a, char *line);
+int				li_parse_start_end(t_li_board *b, char *line);
 
 int				li_resolve(t_board board);
 
