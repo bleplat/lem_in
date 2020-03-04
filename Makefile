@@ -6,7 +6,7 @@
 #    By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 09:05:04 by bleplat           #+#    #+#              #
-#    Updated: 2020/03/04 17:08:44 by bleplat          ###   ########.fr        #
+#    Updated: 2020/03/04 18:46:47 by bleplat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,8 @@ FNT =		li_main.c \
 			li_create_path.c \
 			li_calc_steps.c \
 			li_insertion_sort.c \
-			li_print_matrice.c
+			li_print_matrice.c \
+			li_reset_bfs.c
 
 
 ###########################

@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 16:14:55 by jthierce          #+#    #+#             */
-/*   Updated: 2020/03/01 18:52:26 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/03/03 16:42:02 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ void	li_insertion_sort(int *str, size_t size);
 int		li_calc_step(t_board board, int status);
 int		li_create_path(t_board board, int **matrice);
 void	li_reset_bfs(t_board board, int **matrice);
+void	li_print_matrice(t_board board, int **matrice);
 
 #endif

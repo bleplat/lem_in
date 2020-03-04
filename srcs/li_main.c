@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 17:45:14 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/03 21:58:55 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/04 18:46:34 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int		main(int argc, char **argv)
 		return (ft_abs(li_perror(rst, NULL)));
 	}
 	li_print_input(board);
-	li_print_result(board);
+	//li_print_result(board);
 	li_board_destroy(&board);
 	return (rst);
 }

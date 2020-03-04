@@ -6,32 +6,37 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 13:31:01 by jthierce          #+#    #+#             */
-/*   Updated: 2020/03/01 18:43:04 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/03/04 15:14:38 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <limits.h>
+
 #include "li_resolve.h"
 
-static int li_total_step(int *calc)
+static int li_total_step(int *calc, ssize_t size)
 {
-	int total;
-	int	i;
+	int		total;
+	ssize_t	i;
 
 	total = 0;
-	i = -1;
-	while (calc[++i] != 0)
+	i = 0;
+	while (i < size - 1)
+	{
 		total += calc[i];
+		i++;
+	}
 	return (total);
 }
 
-static void li_delete_step(int *calc, int step_destroy)
+static void li_delete_step(int *calc, int step_destroy, ssize_t size)
 {
-	int i;
+	ssize_t i;
 
 	while (step_destroy > 0)
 	{
 		i = 0;
-		while (calc[i] != 0)
+		while (i < size)
 			i++;
 		while (--i != -1)
 		{
@@ -41,19 +46,20 @@ static void li_delete_step(int *calc, int step_destroy)
 	}
 }
 
-static void	li_add_step(int *calc, int step_add)
+static void	li_add_step(int *calc, int step_add, ssize_t size)
 {
-	int i;
+	ssize_t i;
 
-	while (step_add != 0)
+	while (step_add > 0)
 	{
-		i = -1;
-		while (step_add != 0 && calc[++i] != 0)
+		i = 0;
+		while (step_add != 0 && i < size)
 		{
 			if (calc[i] == -2)
 				calc[i] = 1;
 			else
 				calc[i]++;
+			i++;
 			step_add--;
 		}
 	}
@@ -62,13 +68,15 @@ static void	li_add_step(int *calc, int step_add)
 static int li_calc(t_calc_step step, t_board board)
 {
 	int		*calc;
-	size_t	i;
+	ssize_t	i;
 	int		j;
 
 	i = -1;
-	if (!(calc = (int *)malloc(sizeof(int) * step.size)))
+	if (!(calc = (int *)malloc(sizeof(int) * (step.size))))
 		return (-1);
-	ft_bzero(calc, step.size);
+	while (++i < step.size)
+		calc[i] = 0;
+	i = -1;
 	while (++i < step.size)
 	{
 		if (i + 1 < step.size)
@@ -78,20 +86,20 @@ static int li_calc(t_calc_step step, t_board board)
 				calc[j] += step.distance[i] - step.distance[i + 1];
 		}
 		else
-			calc[j] = -2;
+			calc[i] = -2;
 	}
-	j = li_total_step(calc);
+	j = li_total_step(calc, step.size);
 	j = board.ants_count - j;
 	if (j < 0)
-		li_delete_step(calc, j * -1);
+		li_delete_step(calc, j * -1, step.size);
 	else if (j > 0)
-		li_add_step(calc, j);
+		li_add_step(calc, j, step.size);
 	return (calc[0]);
 }
 
 int			li_calc_step(t_board board, int status)
 {
-	static t_calc_step	step = {0, NULL, 0};
+	static t_calc_step	step = {INT_MAX, NULL, 0};
 	t_room				*room;
 	int 				i;
 
@@ -100,10 +108,12 @@ int			li_calc_step(t_board board, int status)
 	if (status == 1)
 	{
 		free(step.distance);
-		return (step.step);
+		return (step.step - 1); //A verifier
 	}
-	if (ft_memrealloc((void **)&(step.distance), &(step.size), step.size + 1))
+	if (li_memrealloc((void **)&(step.distance), sizeof(int) * (step.size),
+	sizeof(int) * (step.size + 1)))
 		return (-1);
+	step.size++;
 	while (room->prev != NULL)
 	{
 		i++;
@@ -116,7 +126,7 @@ int			li_calc_step(t_board board, int status)
 		free(step.distance);
 		return (-1);
 	}
-	if (i >= step.step)
+	if (i <= step.step)
 	{
 		step.step = i;
 		return (0);
