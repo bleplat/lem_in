@@ -1,0 +1,42 @@
+#####
+# MOUSE COUNT:
+1
+# ROOMS:
+##start
+b 3 2
+start 0 0
+##end
+end 1 1
+room 2 2
+a 3 1
+c 3 4
+useless -1 -3
+dumb 99 89
+dumb_bis 66 78
+d 3 5
+##$$$$$$$$$$$$
+###$$$$$
+e 3 5
+# LINKS:
+start-a
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+a-b
+b-c
+c-d
+d-e
+e-end
+start-start
+start-b
+a-a
+b-b
+#------
+c-c
+dumb-dumb_bis
+d-d
+e-e
+#
+end-end
+e-end
+#######
+## END OF FILE
+#end

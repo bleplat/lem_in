@@ -1,0 +1,37 @@
+##BEGIN
+# MOUSE COUNT:
+# longer comment
+##ANTS
+1
+##
+# longer comment
+# longer comment
+# longer comment
+# longer comment
+##DISPLAY
+# longer comment
+# longer comment
+# ROOMS:
+# longer comment
+dumb 55 55
+# longer comment
+useless 66 66
+##start
+##
+start 0 0
+##end
+# longer comment
+end 1 1
+room 2 2
+# longer comment
+# longer comment
+trail 88 88
+# LINKS:
+##
+# longer comment
+room-end
+# END OF FILE
+start-room
+# longer comment
+# longer comment
+#END

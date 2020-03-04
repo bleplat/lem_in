@@ -1,12 +1,15 @@
 # MOUSE COUNT:
-1
+3
 # ROOMS:
 ##start
 start 0 0
 ##end
 end 1 1
-room 2 2
+a 2 2
+b 3 3
 # LINKS:
-start-room
-room-end
+start-a
+start-b
+a-end
+b-end
 # END OF FILE
