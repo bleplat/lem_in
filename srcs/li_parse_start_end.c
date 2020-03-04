@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 20:23:05 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/04 17:29:32 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/04 19:07:22 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 ** Return an error code if this was a valid command but it was unexpected.
 */
 
-// TODO: check when start and end are lasts
-// TODO: use counts directly to not use unstable ints from board ?
 int		li_parse_start_end(t_li_board *board, char *line)
 {
 	if (ft_strcmp(line, "##start\n") == 0)

@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 15:20:19 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/04 16:30:16 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/04 19:07:46 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,3 @@ int				li_parse_link(t_li_board *board, t_array *links_a, char *line)
 	*nl = '\n';
 	return (0);
 }
-// TODO: check why input have to be closed twice zhen invalid mouse count
-// TODO: check duplicate links
