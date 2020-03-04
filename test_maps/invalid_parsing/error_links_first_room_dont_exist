@@ -1,0 +1,13 @@
+# MOUSE COUNT:
+1
+# ROOMS:
+##start
+start 0 0
+##end
+end 1 1
+room 1 3
+# LINKS:
+shrek-end
+start-room
+room-end
+# END OF FILE
