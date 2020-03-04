@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 15:15:26 by jthierce          #+#    #+#             */
-/*   Updated: 2020/02/29 15:30:07 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/03/03 19:56:17 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ struct			s_li_calc_step
 {
 	int			step;
 	int			*distance;
-	size_t		size;
+	ssize_t		size;
 };
 
 #endif
