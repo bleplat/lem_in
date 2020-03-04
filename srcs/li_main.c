@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 17:45:14 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/03 18:41:33 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/03/03 21:58:55 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 
 int		main_resolve(t_li_board *board)
 {
-	li_resolve(*board);
+	(void)board;
+	//li_resolve(*board);
 	// TODO: Resolve lem_in.
 	return (0);
 }
@@ -31,15 +32,14 @@ int		main_resolve(t_li_board *board)
 
 int		main_parse_resolve(t_li_board *board)
 {
+	int		rst_parse;
 	int		rst;
 
-	if ((rst = li_board_parse_input(board)) < 0)
-		return (rst);
-	li_board_parsing_post(board);
-	li_board_dump(board);
+	if ((rst_parse = li_parse_input(board)) < 0)
+		return (rst_parse);
 	if ((rst = main_resolve(board)) < 0)
 		return (rst);
-	return (0);
+	return (rst_parse);
 }
 
 /*
@@ -64,5 +64,5 @@ int		main(int argc, char **argv)
 	li_print_input(board);
 	li_print_result(board);
 	li_board_destroy(&board);
-	return (0);
+	return (rst);
 }
