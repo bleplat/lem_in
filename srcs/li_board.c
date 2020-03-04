@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 18:26:29 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/03 16:31:49 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/03/04 19:12:26 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 ** The structure needs to be cleaned by the destroy function.
 */
 
-t_li_board					*li_board_create(void)
+t_li_board				*li_board_create(void)
 {
 	t_li_board		*to_return;
 
@@ -44,7 +44,7 @@ t_li_board					*li_board_create(void)
 ** Clean all rooms in a list.
 */
 
-void						clean_rooms_in_list(t_li_room *rooms, int cnt)
+void					clean_rooms_in_list(t_li_room *rooms, int cnt)
 {
 	int i;
 
@@ -60,7 +60,7 @@ void						clean_rooms_in_list(t_li_room *rooms, int cnt)
 ** Clean a t_li_board struct.
 */
 
-void						li_board_destroy(t_li_board **board)
+void					li_board_destroy(t_li_board **board)
 {
 	int		i;
 

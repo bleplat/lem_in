@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 15:32:32 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/01 20:10:15 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/04 19:11:58 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ int							li_room_popclean0(t_array *rooms_a)
 /*
 ** Tell if a room name is valid.
 */
-
 
 int							li_room_is_name_valid(const char *name)
 {

@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 20:23:05 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/04 19:07:22 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/04 19:10:45 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,3 @@ int		li_parse_start_end(t_li_board *board, char *line)
 	}
 	return (0);
 }
-
