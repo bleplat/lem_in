@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 18:35:04 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/04 17:25:03 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/04 20:02:49 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ static void	update_links(t_li_board *board, t_array *links_a)
 {
 	board->links_count = links_a->item_count;
 	board->links = links_a->items;
+}
+
+static void	update_rooms(t_li_board *board, t_array *rooms_a)
+{
+	board->rooms_count = rooms_a->item_count;
+	board->rooms = rooms_a->items;
 }
 
 /*
@@ -71,6 +77,7 @@ int			li_parse_input(t_li_board *board)
 	if (!(links_a = ft_array_new(sizeof(t_li_link), 32)))
 		return (ft_array_del0(&rooms_a) + -1);
 	rst = parse_each_line(board, rooms_a, links_a);
+	update_rooms(board, rooms_a);
 	update_links(board, links_a);
 	ft_free0(rooms_a);
 	ft_free0(links_a);
