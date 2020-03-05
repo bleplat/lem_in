@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 16:14:55 by jthierce          #+#    #+#             */
-/*   Updated: 2020/03/05 18:14:21 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/03/05 19:31:00 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@
 #include "li_board.h"
 #include "li_room.h"
 #include "li_calc_step.h"
+
+#define LI_STATUS_IN_PATH 2
+
+#define LI_MATRICE_NO_LINK 0
+#define LI_MATRICE_LINK 1
+#define LI_MATRICE_X_TO_Y 4
+#define LI_MATRICE_Y_TO_X 5
 
 int		li_resolve(int **matrice, t_board board);
 int		li_bfs(t_board board, int **matrice);
