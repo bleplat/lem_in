@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 17:45:14 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/04 18:46:34 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/05 18:15:41 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,12 @@
 
 int		main_resolve(t_li_board *board)
 {
-	(void)board;
-	//li_resolve(*board);
+	int **matrice;
+
+	matrice = NULL;
+	if (!(li_resolve(matrice, *board)))
+		return (-1);
+	li_free_matrice(matrice, board->rooms_count);
 	// TODO: Resolve lem_in.
 	return (0);
 }

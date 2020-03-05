@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 13:54:10 by jthierce          #+#    #+#             */
-/*   Updated: 2020/03/04 15:19:01 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/03/05 18:07:54 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@
 ** 2 = end is link with start so we can print in one line
 */
 
-int		li_resolve(t_board board)
+int		li_resolve(int **matrice, t_board board)
 {
-	int		**matrice;
 	int		result;
 
 	if ((matrice = li_create_matrice(board.rooms_count)) == NULL)
