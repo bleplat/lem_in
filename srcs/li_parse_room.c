@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 15:12:04 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/04 17:31:04 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/09 23:46:59 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ static int		just_parse_room(t_array *rooms_a, char *line)
 		return (LI_ERROR_ROOMS_SYNTAX);
 	if (!(new_room = ft_array_newitem(rooms_a)))
 		return (-1);
+	li_room_clean0(new_room);
 	new_room->index = rooms_a->item_count - 1;
 	*next = '\0';
 	if (li_room_find(rooms_a->items, rooms_a->item_count, line) != NULL)

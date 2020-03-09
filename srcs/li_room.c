@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 15:32:32 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/04 19:11:58 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/09 23:45:15 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,15 @@
 int							li_room_clean0(t_room *room)
 {
 	ft_free0((void*)room->name);
+	room->index = -1;
 	room->name = NULL;
 	room->x = 0;
 	room->y = 0;
+	room->link = NULL;
+	room->count_link = 0;
+	room->prev = NULL;
+	room->status = 0;
+	room->i_ant = -1;
 	return (0);
 }
 
