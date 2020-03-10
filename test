@@ -2,7 +2,7 @@
 ##start
 start 0 0
 ##end
-end 0 0
+end 1 1
 # expect results
 1 0 0
 2 0 0

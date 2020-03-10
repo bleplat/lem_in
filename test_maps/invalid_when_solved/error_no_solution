@@ -1,0 +1,20 @@
+# MOUSE COUNT:
+1
+# ROOMS:
+##start
+start 0 0
+##end
+end 1 1
+room 2 2
+dumb 3 3
+useless 4 4
+impass 5 5
+void 7 7
+# LINKS:
+start-room
+start-impass
+impass-room
+dumb-end
+useless-end
+useless-dumb
+# END OF FILE

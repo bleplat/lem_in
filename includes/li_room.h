@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   li_room.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 22:23:36 by jthierce          #+#    #+#             */
-/*   Updated: 2020/03/10 05:23:16 by marvin           ###   ########.fr       */
+/*   Updated: 2020/03/10 19:40:37 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ struct							s_li_room
 	t_room		*prev;//mettre a NULL
 	t_room		*cp;
 	int			status;//Initialiser a 0
+	// mouse
+	int			i_ant;
 };
 
 void							li_room_dump(t_li_room *room);
@@ -60,6 +62,5 @@ t_li_room						*li_room_find(t_room *rooms, int cnt,
 
 int								li_room_clean0(t_room *room);
 int								li_room_popclean0(t_array *rooms);
-
 
 #endif

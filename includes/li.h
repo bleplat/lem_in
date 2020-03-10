@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 19:11:09 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/06 21:04:22 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/03/10 19:40:55 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "li_board.h"
 # include "li_link.h"
 # include "li_room.h"
+# include "li_resolve.h"
 
 # define LI_MAXLINELEN 32000
 
@@ -51,7 +52,6 @@ int				li_parsing_should_line_be_ignored(char *line);
 
 int				li_perror(int code, const char *message);
 void			li_print_input(t_li_board *board);
-void			li_print_result(t_li_board *board);
 
 int				li_parse_ants(t_li_board *b);
 int				li_parse_room(t_li_board *b, t_array *rooms_a, char *line);
@@ -59,5 +59,17 @@ int				li_parse_link(t_li_board *b, t_array *links_a, char *line);
 int				li_parse_start_end(t_li_board *b, char *line);
 
 int				li_resolve(t_board board);
+
+/*
+** Result printing:
+*/
+
+int				*li_ant_choices_create(t_board *brd, t_array *pathes_a);
+
+void			li_print_result(t_li_board *board);
+t_array			*li_pathes_create(t_li_board *board);
+void			li_pathes_destroy(t_array **pathes_a);
+
+
 
 #endif
