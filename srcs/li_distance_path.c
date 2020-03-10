@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 19:19:54 by jthierce          #+#    #+#             */
-/*   Updated: 2020/03/05 21:27:02 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/03/10 20:04:14 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	li_distance_path(t_board board, int *distance, int size)
 	{
 		j = 1;
 		if ((board.rooms[board.rooms[1].link[i]].status == 1 ||
+		board.rooms[board.rooms[1].link[i]].status == 2 ||
 		board.rooms[board.rooms[1].link[i]].status == 5)
 		&& board.rooms[board.rooms[1].link[i]].prev != NULL)
 		{
