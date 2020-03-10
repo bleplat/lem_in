@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   li_room.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 22:23:36 by jthierce          #+#    #+#             */
-/*   Updated: 2020/03/01 15:59:25 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/10 05:23:16 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 **2: In path
 **5: Mandatory to use C path
 **6: Used path C
+**7: temporary status 5
+**8: temporary status 6
 */
 
 typedef struct s_li_room		t_li_room;
@@ -45,6 +47,7 @@ struct							s_li_room
 	int			*link;//Mettre a NULL
 	int			count_link;//Initialiser a 0
 	t_room		*prev;//mettre a NULL
+	t_room		*cp;
 	int			status;//Initialiser a 0
 };
 

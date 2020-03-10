@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 19:11:09 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/05 18:10:15 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/03/06 21:04:22 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ int				li_parse_room(t_li_board *b, t_array *rooms_a, char *line);
 int				li_parse_link(t_li_board *b, t_array *links_a, char *line);
 int				li_parse_start_end(t_li_board *b, char *line);
 
-int				li_resolve(int **matrice, t_board board);
-void			li_free_matrice(int **matrice, int size);
+int				li_resolve(t_board board);
 
 #endif

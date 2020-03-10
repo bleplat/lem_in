@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   li_room.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 15:32:32 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/04 19:11:58 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/06 20:12:34 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 int							li_room_clean0(t_room *room)
 {
 	ft_free0((void*)room->name);
+	if (room->link != NULL)
+		ft_free0(room->link);
 	room->name = NULL;
 	room->x = 0;
 	room->y = 0;
