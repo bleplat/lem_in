@@ -6,7 +6,7 @@
 #    By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 09:05:04 by bleplat           #+#    #+#              #
-#    Updated: 2020/03/04 18:46:47 by bleplat          ###   ########.fr        #
+#    Updated: 2020/03/06 20:15:27 by bleplat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,9 @@ FNT =		li_main.c \
 			li_calc_steps.c \
 			li_insertion_sort.c \
 			li_print_matrice.c \
-			li_reset_bfs.c
+			li_reset_bfs.c \
+			li_pathes.c \
+			li_ant_choices_create.c \
 
 
 ###########################
@@ -133,7 +135,7 @@ $(OBJ_DIR):
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/% | $(OBJ_DIR)
 	@printf "\e[96m" || true
-	$(CC) $(CFLAGS) -o $@ -I $(INCLUDES) -c $<
+	$(CC) $(CFLAGS) -o $@ -c $<
 	@printf "\e[0m" || true
 
 $(LIBFT):

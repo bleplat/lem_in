@@ -2,12 +2,9 @@
 ##start
 start 0 0
 ##end
-end 0 0
+end 1 1
 # expect results
-useless1 0 0
 room 0 0
-useless2 0 0
-useless3 0 0
 start-room
 room-end
 # expect results
