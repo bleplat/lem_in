@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 15:00:00 by jthierce          #+#    #+#             */
-/*   Updated: 2020/03/04 15:16:19 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/03/06 19:08:01 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,17 @@ static void	li_return_old_version(t_board board, int **matrice)
 		if (board.rooms[i].status == 5 || board.rooms[i].status == 6)
 		{
 			j = -1;
-			board.rooms[i].status = 2;
-			while (++j < board.rooms[i].count_link)
+			ft_printf("{}+++++++++++++++++++%d et %d\n", board.rooms[i].index, board.rooms[i].status);
+			while (board.rooms[i].status == 5 && ++j < board.rooms[i].count_link)
 			{
-				if (board.rooms[board.rooms[i].link[j]].status == 6 &&
-				matrice[board.rooms[i].index][board.rooms[i].link[j]] == 4)
-					board.rooms[board.rooms[i].link[++j]].status = 2;
+				ft_printf("~~~~~~~~~~~~~~~~%d\n", board.rooms[board.rooms[i].link[j]].index);
+				if (matrice[board.rooms[i].index][board.rooms[board.rooms[i].link[j]].index] == 6)
+					{
+						board.rooms[i].prev = &(board.rooms[board.rooms[i].link[j]]);
+						ft_printf("on s'est inflitré\n");
+					}
 			}
+			board.rooms[i].status = 2;
 		}
 	}
 	i = -1;
@@ -49,8 +53,29 @@ static void	li_return_old_version(t_board board, int **matrice)
 static void	li_valide_path_matrice(t_board board, int **matrice)
 {
 	t_room	*rooms;
+	int		i;
 
+	i = -1;
+	while (++i < board.rooms[1].count_link)
+	{
+		if (board.rooms[board.rooms[1].link[i]].status == 2 ||
+		board.rooms[board.rooms[1].link[i]].status == 5)
+		{
+			rooms = &(board.rooms[board.rooms[1].link[i]]);
+			while (rooms->prev != NULL)
+			{
+				if (rooms->index != 1)
+					rooms->status = 2;
+				else
+					rooms->status = 3;
+				matrice[rooms->index][rooms->prev->index] = 4;
+				matrice[rooms->prev->index][rooms->index] = 5;
+				rooms = rooms->prev;
+			}
+		}
+	}
 	rooms = &(board.rooms[1]);
+	ft_printf("{}jai plus didee de couleur\n");
 	while (rooms->prev != NULL)
 	{
 		if (rooms->index != 1)
@@ -82,9 +107,12 @@ int	li_create_path(t_board board, int **matrice)
 		return (-1);
 	if (result == -2)
 	{
+		ft_printf("{}li_calc a renvoyé -2\n");
 		li_return_old_version(board, matrice);
 		return (-2);
 	}
+	ft_printf("{}On entre dans li_valide_path_matrice\n");
 	li_valide_path_matrice(board, matrice);
+	ft_printf("{yellow}YES YOUR GRACE\n");
 	return (0);
 }

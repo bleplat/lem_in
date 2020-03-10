@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 13:31:01 by jthierce          #+#    #+#             */
-/*   Updated: 2020/03/04 15:14:38 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/03/10 19:32:29 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ static int li_calc(t_calc_step step, t_board board)
 		{
 			j = i + 1;
 			while (--j != -1)
-				calc[j] += step.distance[i] - step.distance[i + 1];
+				calc[j] += step.distance[i + 1] - step.distance[i];
 		}
 		else
 			calc[i] = -2;
@@ -94,8 +94,17 @@ static int li_calc(t_calc_step step, t_board board)
 		li_delete_step(calc, j * -1, step.size);
 	else if (j > 0)
 		li_add_step(calc, j, step.size);
-	return (calc[0]);
+	j = step.distance[0] + calc[0] - 1;
+	free(calc);
+	return (j);
 }
+
+/*
+** Calcul le nombre d'etape minimum avec les nouveaux chemins.
+**
+** Si la valeur est plus grande que celle d'avant alors la fonctin retourne
+** un code d'erreur ce qui arrete l'algo et retroune en arriere.
+*/
 
 int			li_calc_step(t_board board, int status)
 {
@@ -107,25 +116,24 @@ int			li_calc_step(t_board board, int status)
 	room = &(board.rooms[1]);
 	if (status == 1)
 	{
-		free(step.distance);
-		return (step.step - 1); //A verifier
+		if (step.distance != NULL)
+			free(step.distance);
+		return (step.step); //A verifier
 	}
 	if (li_memrealloc((void **)&(step.distance), sizeof(int) * (step.size),
 	sizeof(int) * (step.size + 1)))
 		return (-1);
 	step.size++;
-	while (room->prev != NULL)
-	{
-		i++;
-		room = room->prev;
-	}
-	step.distance[step.size - 1] = i;
-	li_insertion_sort(step.distance, step.size);
+	li_distance_path(board, step.distance, step.size);
+	i = -1;
+	while (++i < step.size)
+		ft_printf("step[%d] = %d\n", i, step.distance[i]);
 	if ((i = li_calc(step, board)) == -1)
 	{
 		free(step.distance);
 		return (-1);
 	}
+	ft_printf("{orange}i = %d{}\n", i);
 	if (i <= step.step)
 	{
 		step.step = i;
