@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 15:32:32 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/10 19:36:27 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/03/11 22:26:07 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,6 @@ void						li_room_dump(t_li_room *room)
 	ft_printf("{}");
 	x = room->x;
 	y = room->y;
-	ft_printf("  {bold}{orange}%6d: %-8s   (%d; %d){}\n",
-				room->index, room->name, x, y);
+	ft_printf("  {bold}{orange}%6d: %-8s   (%d; %d){}\t\tant %d\n",
+				room->index, room->name, x, y, room->i_ant);
 }
