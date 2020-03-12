@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 14:43:42 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/12 20:06:35 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/12 20:18:49 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,10 +140,11 @@ void			zebra(t_board *board, t_array *pathes_a, int *choices)
 	keep_running = 3443;
 	while (keep_running)
 	{
+		if (keep_running != 3443)
+			ft_putchar('\n');
 		keep_running = 0;
 		keep_running |= move_ants_on_pathes(pathes_a);
 		keep_running |= begin_ants(board, pathes_a, choices);
-		ft_putchar('\n');
 	}
 }
 
@@ -157,9 +158,11 @@ void			elephant(t_board *board, t_array *pathes_a)
 
 	if (!(choices = li_ant_choices_create(board, pathes_a)))
 		return ;
+	/* // TODO: function displaying choices
 	for (int n = 0; n < board->ants_count; n++)
 		ft_printf("%d, ", choices[n]);
 	ft_printf("\n");
+	*/
 	zebra(board, pathes_a, choices);
 	ft_free0(choices);
 }
@@ -170,13 +173,14 @@ void			elephant(t_board *board, t_array *pathes_a)
 
 void			li_print_result(t_li_board *board)
 {
-	li_board_dump(board);
+	//li_board_dump(board);
 	t_array			*pathes_a;
+	ft_putchar('\n');
 
 	if (!(pathes_a = li_pathes_create(board)))
 		return ;
 
-
+/* // TODO: put that in a function
 	for (int i_path = 0; i_path < pathes_a->item_count; i_path++)
 	{
 		ft_printf("voici un chemin:\n");
@@ -189,7 +193,7 @@ void			li_print_result(t_li_board *board)
 		
 
 	}
-
+*/
 
 
 
