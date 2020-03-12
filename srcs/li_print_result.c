@@ -133,10 +133,8 @@ int				begin_ants(t_board *brd, t_array *pathes_a, int *choices)
 
 void			zebra(t_board *board, t_array *pathes_a, int *choices)
 {
-	int		running_ants;
 	int		keep_running;
 
-	running_ants = 0;
 	keep_running = 3443;
 	while (keep_running)
 	{

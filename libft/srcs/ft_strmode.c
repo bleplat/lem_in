@@ -30,8 +30,10 @@ static void		fill_entry_type(mode_t mode, char *str)
 		str[0] = 'l';
 	else if (mode & S_IFSOCK)
 		str[0] = 's';
+#ifdef __APPLE__
 	else if (mode & S_IFWHT)
 		str[0] = 'w';
+#endif
 	else
 		str[0] = '?';
 }
