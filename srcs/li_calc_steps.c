@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 13:31:01 by jthierce          #+#    #+#             */
-/*   Updated: 2020/03/12 18:57:00 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/03/12 22:22:08 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,11 +109,9 @@ static int li_calc(t_calc_step step, t_board board)
 int			li_calc_step(t_board board, int status)
 {
 	static t_calc_step	step = {INT_MAX, NULL, 0};
-	t_room				*room;
 	int 				i;
 
 	i = 0;
-	room = &(board.rooms[1]);
 	if (status == 1)
 	{
 		if (step.distance != NULL)
@@ -133,7 +131,7 @@ int			li_calc_step(t_board board, int status)
 		free(step.distance);
 		return (-1);
 	}
-	//ft_printf("{orange}i = %d{}\n", i);
+	ft_printf("{}i = %d{}\n", i);
 	if (i <= step.step)
 	{
 		step.step = i;
