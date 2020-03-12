@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 13:34:38 by jthierce          #+#    #+#             */
-/*   Updated: 2020/03/10 19:14:38 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/03/12 22:17:57 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,10 +97,8 @@ static	int li_bfs_type_c(t_board board, int **matrice, int *queu, int j)
 
 int	li_bfs_body(t_board board, int **matrice, int *queu, int j)
 {
-	int i;
 	int save;
 
-	i = -1;
 	save = j;
 	/*ft_printf("On regarde actuellement la sall %d et status de queu = %d\n", queu[0], board.rooms[queu[0]].status);
 	if (board.rooms[queu[0]].cp != NULL)
