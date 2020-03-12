@@ -6,7 +6,7 @@
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 14:43:42 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/11 22:37:57 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/03/12 20:06:35 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int			print_move(int i_ant, t_room *dst)
 	if (i_ant < 0)
 		return (0);
 	ft_putchar('L');
-	ft_putnbr(i_ant);
+	ft_putnbr(i_ant + 1);
 	ft_putchar('-');
 	ft_putstr(dst->name);
 	ft_putchar(' ');
