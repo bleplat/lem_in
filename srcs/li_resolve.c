@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 13:54:10 by jthierce          #+#    #+#             */
-/*   Updated: 2020/03/06 22:45:56 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/03/12 20:10:09 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,15 +61,15 @@ int		li_resolve(t_board board)
 		li_free_matrice(matrice, board.rooms_count);
 		return (-1);
 	}
-	if (result == 1)
+	if (result == 1 || result == -1)
 		li_calc_step(board, 1);
-	li_print_matrice(board, matrice);
-	if (result != -2)
+	//li_print_matrice(board, matrice);
+	/*if (result != -2)
 	{
-		ft_printf("ALLO C TOI?\n");
+		//ft_printf("ALLO C TOI?\n");
 		ft_printf("{}----------------------{blue}\n");
 		li_print_path(board);
-	}
+	}*/
 	li_free_matrice(matrice, board.rooms_count);
 	return (result);
 }

@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 13:31:01 by jthierce          #+#    #+#             */
-/*   Updated: 2020/03/10 19:32:29 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/03/12 18:57:00 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,14 +126,14 @@ int			li_calc_step(t_board board, int status)
 	step.size++;
 	li_distance_path(board, step.distance, step.size);
 	i = -1;
-	while (++i < step.size)
-		ft_printf("step[%d] = %d\n", i, step.distance[i]);
+	/*while (++i < step.size)
+		ft_printf("step[%d] = %d\n", i, step.distance[i]);*/
 	if ((i = li_calc(step, board)) == -1)
 	{
 		free(step.distance);
 		return (-1);
 	}
-	ft_printf("{orange}i = %d{}\n", i);
+	//ft_printf("{orange}i = %d{}\n", i);
 	if (i <= step.step)
 	{
 		step.step = i;

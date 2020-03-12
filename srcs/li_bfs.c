@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 19:03:31 by jthierce          #+#    #+#             */
-/*   Updated: 2020/03/10 19:15:09 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/03/12 18:55:45 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,13 +75,13 @@ static int li_search_other_path(t_board board, int **matrice, int *queu, int *j)
 		return (1);
 	li_used_path(board, matrice);
 	li_first_reset(board);
-	ft_printf("{blue}On entre dans li_create_path\n{}");
+	//ft_printf("{blue}On entre dans li_create_path\n{}");
 	if ((i = li_create_path(board, matrice)) == -1)
 	{
-		ft_printf("{green}GEANT VERT??\n");
+		//ft_printf("{green}GEANT VERT??\n");
 		return (-1);
 	}
-	ft_printf("{blue}BLUE DABEDI DABEDA\n");
+	//ft_printf("{blue}BLUE DABEDI DABEDA\n");
 	if (i == -2)
 		return (1);
 	return (0);
@@ -153,8 +153,8 @@ int		li_bfs(t_board board, int **matrice)
 		}
 		//li_print_status_room(board);
 		li_reset_bfs(board, matrice);
-		li_print_path(board);
+		//li_print_path(board);
 	}
 	free(queu);
-	return (0);
+	return (1);
 }

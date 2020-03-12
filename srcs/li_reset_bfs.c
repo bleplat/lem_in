@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 16:03:07 by jthierce          #+#    #+#             */
-/*   Updated: 2020/03/06 22:44:52 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/03/12 18:58:45 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	li_reset_rooms_status(t_board board, int **matrice)
 		if (board.rooms[i].status == 5 ||
 		board.rooms[i].status == 6)
 		{
-			ft_printf("{blue}$$$$$$$i = %d\n{}", i);
+			//ft_printf("{blue}$$$$$$$i = %d\n{}", i);
 			board.rooms[i].status = 0;
 			while (++j < board.rooms[i].count_link)
 			{
