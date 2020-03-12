@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 13:31:01 by jthierce          #+#    #+#             */
-/*   Updated: 2020/03/12 22:22:08 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/03/12 23:19:15 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ int			li_calc_step(t_board board, int status)
 		free(step.distance);
 		return (-1);
 	}
-	ft_printf("{}i = %d{}\n", i);
+	//ft_printf("{}i = %d{}\n", i);
 	if (i <= step.step)
 	{
 		step.step = i;
