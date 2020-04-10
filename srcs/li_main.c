@@ -19,9 +19,12 @@
 
 int		main_resolve(t_li_board *board)
 {
-	if ((li_resolve(*board)) < 0)
+	int		rst;
+
+	if ((rst = li_resolve(*board)) < 0)
 		return (-1);
-	// TODO: Resolve lem_in.
+	// TODO: Do that in li_resolve instead?
+	board->resolve_result = rst;
 	return (0);
 }
 

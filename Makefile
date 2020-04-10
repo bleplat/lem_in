@@ -47,6 +47,7 @@ FNT =		li_main.c \
 			li_board_add_output.c \
 			li_print_input.c \
 			li_print_result.c \
+			li_print_singleround_result.c \
 			li_board_pop_output.c \
 			li_resolve.c \
 			li_matrice.c \

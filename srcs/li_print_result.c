@@ -175,6 +175,12 @@ void			li_print_result(t_li_board *board)
 	t_array			*pathes_a;
 	ft_putchar('\n');
 
+	if (board->resolve_result == 2)
+	{
+		li_print_singleround_result(board);
+		return ;
+	}
+
 	if (!(pathes_a = li_pathes_create(board)))
 		return ;
 

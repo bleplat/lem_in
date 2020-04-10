@@ -36,6 +36,7 @@ struct						s_li_board
 	int				i_room_end;
 	t_li_link		*links;
 	int				links_count;
+	int				resolve_result;
 };
 
 void						li_board_dump(t_li_board *board);

@@ -70,6 +70,7 @@ void			li_print_result(t_li_board *board);
 t_array			*li_pathes_create(t_li_board *board);
 void			li_pathes_destroy(t_array **pathes_a);
 
+void			li_print_singleround_result(t_li_board *b);
 
 
 #endif
