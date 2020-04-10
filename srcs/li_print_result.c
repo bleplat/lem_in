@@ -14,32 +14,32 @@
 
 #include "li.h"
 
-int			print_move(int i_ant, t_room *dst)
+int			print_move(int i_ant, t_room *dst, int *is_first)
 {
 	if (i_ant < 0)
 		return (0);
+	if (!(*is_first))
+		ft_putchar(' ');
 	ft_putchar('L');
 	ft_putnbr(i_ant + 1);
 	ft_putchar('-');
 	ft_putstr(dst->name);
-	ft_putchar(' ');
+	*is_first = 0;
 	return (2);
 }
 
-int				move_ants_on_path(t_array *rooms_a)
+int				move_ants_on_path(t_array *rooms_a,
+							int *is_first_ant)
 {
 	int		rst;
 	t_room	*room_e;
 	t_room	*room_s;
 	int		i_room_s;
-
 	//ft_printf("{italic}{bold}{red}HAHA moving on path of size %d{}\n", rooms_a->item_count);//
 	//for (int kk = 0; kk < rooms_a->item_count; kk++)
 	//{
 	//	li_room_dump(*(t_room**)ft_array_at(rooms_a, kk));
 	//}
-
-
 
 	rst = 0;
 	room_e = *(t_room**)ft_array_at(rooms_a, 0);
@@ -49,14 +49,15 @@ int				move_ants_on_path(t_array *rooms_a)
 		room_s = *(t_room**)ft_array_at(rooms_a, i_room_s);
 		room_e->i_ant = room_s->i_ant;
 		//ft_printf("ant %d walking to %s...\n", room_e->i_ant, room_e->name);
-		rst |= print_move(room_e->i_ant, room_e);
+		rst |= print_move(room_e->i_ant, room_e, is_first_ant);
 		room_e = room_s;
 		i_room_s++;
 	}
 	//ft_printf("move_ants_on_path returning %d\n", rst);//
 	return (rst);
 }
-int				move_ants_on_pathes(t_array *pathes_a)
+int				move_ants_on_pathes(t_array *pathes_a,
+							int *is_first_ant)
 {
 	int			rst;
 	int			i_path;
@@ -67,7 +68,7 @@ int				move_ants_on_pathes(t_array *pathes_a)
 	while (i_path < pathes_a->item_count)
 	{
 		path = *(void**)ft_array_at(pathes_a, i_path);
-		rst |= move_ants_on_path(path);
+		rst |= move_ants_on_path(path, is_first_ant);
 		i_path++;
 	}
 	//ft_printf("move_ants_on_pathes returning %d\n", rst);//
@@ -84,7 +85,9 @@ int				not_done(int a, int b, int *choices)
 	}
 	return (1);
 }
-int				begin_ants(t_board *brd, t_array *pathes_a, int *choices)
+
+int				begin_ants(t_board *brd, t_array *pathes_a, int *choices,
+							int *is_first_ant)
 {
 	int		rst;
 	int		a;
@@ -114,7 +117,7 @@ int				begin_ants(t_board *brd, t_array *pathes_a, int *choices)
 		first = *(t_room**)ft_array_at(path, path->item_count - 2);
 		//ft_printf("ant %d on path %d\n", b, choices[b]);//
 		first->i_ant = b;
-		rst |= print_move(b, first);
+		rst |= print_move(b, first, is_first_ant);
 		b++;
 	}
 	b--;
@@ -134,6 +137,7 @@ int				begin_ants(t_board *brd, t_array *pathes_a, int *choices)
 void			zebra(t_board *board, t_array *pathes_a, int *choices)
 {
 	int		keep_running;
+	int		is_first_ant;
 
 	keep_running = 3443;
 	while (keep_running)
@@ -141,13 +145,14 @@ void			zebra(t_board *board, t_array *pathes_a, int *choices)
 		if (keep_running != 3443)
 			ft_putchar('\n');
 		keep_running = 0;
-		keep_running |= move_ants_on_pathes(pathes_a);
-		keep_running |= begin_ants(board, pathes_a, choices);
+		is_first_ant = 1;
+		keep_running |= move_ants_on_pathes(pathes_a, &is_first_ant);
+		keep_running |= begin_ants(board, pathes_a, choices, &is_first_ant);
 	}
 }
 
 /*
-** That's a big animal.
+** Every ant choose a path it will take.
 */
 
 void			elephant(t_board *board, t_array *pathes_a)
@@ -198,10 +203,6 @@ void			li_print_result(t_li_board *board)
 
 	}
 */
-
-
-
-
 
 	elephant(board, pathes_a);
 	li_pathes_destroy(&pathes_a);
