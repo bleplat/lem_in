@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 16:14:55 by jthierce          #+#    #+#             */
-/*   Updated: 2020/03/10 18:33:41 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/04/22 16:43:30 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int		li_create_path(t_board board, int **matrice);
 void	li_reset_bfs(t_board board, int **matrice);
 void	li_print_matrice(t_board board, int **matrice);
 void	li_distance_path(t_board board, int *distance, int size);
+int		li_compute_rounds_needed(int ants, int paths, int *paths_len);
 			void	li_print_path(t_board board);
 
 #endif

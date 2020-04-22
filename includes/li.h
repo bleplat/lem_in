@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 19:11:09 by bleplat           #+#    #+#             */
-/*   Updated: 2020/03/10 19:40:55 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/04/22 16:43:16 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,5 @@ void			li_print_result_from_choices(t_board *board, t_array *pathes_a,
 												int *choices);
 
 int				li_print_move(int i_ant, t_room *dst, int *is_first);
-
-int				li_compute_rounds_needed(int ants, int paths, int *paths_len);
 
 #endif
