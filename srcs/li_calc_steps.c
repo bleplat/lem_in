@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 13:31:01 by jthierce          #+#    #+#             */
-/*   Updated: 2020/03/12 23:19:15 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/04/22 16:29:36 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ int			li_calc_step(t_board board, int status)
 	{
 		if (step.distance != NULL)
 			free(step.distance);
-		return (step.step); //A verifier
+		return (step.step);
 	}
 	if (li_memrealloc((void **)&(step.distance), sizeof(int) * (step.size),
 	sizeof(int) * (step.size + 1)))
@@ -124,14 +124,11 @@ int			li_calc_step(t_board board, int status)
 	step.size++;
 	li_distance_path(board, step.distance, step.size);
 	i = -1;
-	/*while (++i < step.size)
-		ft_printf("step[%d] = %d\n", i, step.distance[i]);*/
 	if ((i = li_calc(step, board)) == -1)
 	{
 		free(step.distance);
 		return (-1);
 	}
-	//ft_printf("{}i = %d{}\n", i);
 	if (i <= step.step)
 	{
 		step.step = i;

@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 22:23:36 by jthierce          #+#    #+#             */
-/*   Updated: 2020/03/10 19:40:37 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/04/22 15:51:37 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 **1: in Queue
 **2: In path
 **5: Mandatory to use C path
-**6: Used path C
+**6: Used C path
 **7: temporary status 5
 **8: temporary status 6
 */
