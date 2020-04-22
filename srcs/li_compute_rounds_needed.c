@@ -61,7 +61,7 @@ int				pop(int *ants_cnt, int count, unsigned int *ints)
 	i_int = 0;
 	while (i_int < min_cnt)
 	{
-		ints[i_int] -= 1;
+		ints[i_int] += 1;
 		i_int++;
 	}
 	// TODO: can be improved
