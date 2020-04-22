@@ -66,11 +66,11 @@ int				li_resolve(t_board board);
 
 int				*li_ant_choices_create(t_board *brd, t_array *pathes_a);
 
-void			li_print_result(t_li_board *board);
+int				li_print_result(t_li_board *board);
 t_array			*li_pathes_create(t_li_board *board);
 void			li_pathes_destroy(t_array **pathes_a);
 
-void			li_print_singleround_result(t_li_board *b);
+int				li_print_singleround_result(t_li_board *b);
 
 void			li_print_result_from_choices(t_board *board, t_array *pathes_a,
 												int *choices);
