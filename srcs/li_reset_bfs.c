@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 16:03:07 by jthierce          #+#    #+#             */
-/*   Updated: 2020/03/12 18:58:45 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/04/22 17:44:05 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ static void	li_reset_rooms_status(t_board board, int **matrice)
 	while (++i < board.rooms_count)
 	{
 		j = -1;
+		if (board.rooms[i].status == 7 ||
+			board.rooms[i].status == 8)
+			board.rooms[i].status = 2;
 		if (board.rooms[i].status == 1)
 			board.rooms[i].status = 0;
 		if (board.rooms[i].status == 5 ||

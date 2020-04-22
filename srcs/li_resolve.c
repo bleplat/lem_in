@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 13:54:10 by jthierce          #+#    #+#             */
-/*   Updated: 2020/03/12 20:10:09 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/04/22 17:45:46 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	li_print_path(t_board board)
 	i = -1;
 	while (++i < board.rooms[1].count_link)
 	{
+		ft_printf("board.rooms[board.rooms[1].link[%d]].status = %d\n", i, board.rooms[board.rooms[1].link[i]].status);
 		if (board.rooms[board.rooms[1].link[i]].status == 2)
 		{
 			rooms = &(board.rooms[board.rooms[1].link[i]]);
@@ -63,10 +64,10 @@ int		li_resolve(t_board board)
 	}
 	if (result == 1 || result == -1)
 		li_calc_step(board, 1);
-	//li_print_matrice(board, matrice);
-	/*if (result != -2)
+	/*li_print_matrice(board, matrice);
+	if (result != -2)
 	{
-		//ft_printf("ALLO C TOI?\n");
+		ft_printf("ALLO C TOI?\n");
 		ft_printf("{}----------------------{blue}\n");
 		li_print_path(board);
 	}*/
