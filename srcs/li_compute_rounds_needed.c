@@ -79,7 +79,7 @@ int				li_compute_rounds_needed(int ants, int pathes, int *pathes_len)
 	int		round_cnt;
 
 	sort(pathes, pathes_len);
-	round_cnt = 0;
+	round_cnt = pathes_len[0];
 	while (1)
 	{
 		round_cnt += pop(&ants, pathes, (unsigned int*) pathes_len);
