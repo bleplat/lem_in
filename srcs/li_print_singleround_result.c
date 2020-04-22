@@ -1,6 +1,10 @@
 #include "li.h"
 
-void			li_print_singleround_result(t_li_board *brd)
+/*
+** Display the result when start and end are connected.
+*/
+
+int				li_print_singleround_result(t_li_board *brd)
 {
 	int		i_mouse;
 
@@ -15,4 +19,5 @@ void			li_print_singleround_result(t_li_board *brd)
 		ft_putstr(brd->rooms[1].name);
 		i_mouse++;
 	}
+	return (0);
 }

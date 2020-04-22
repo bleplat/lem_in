@@ -37,21 +37,21 @@ void			li_print_result_2(t_board *board, t_array *pathes_a)
 ** proceed the final output of the ants moves.
 */
 
-void			li_print_result(t_li_board *board)
+int				li_print_result(t_li_board *board)
 {
 	//li_board_dump(board);
 	t_array			*pathes_a;
 	ft_putchar('\n');
 
 	if (board->resolve_result == 2)
-	{
-		li_print_singleround_result(board);
-		return ;
-	}
-
+		return (li_print_singleround_result(board));
 	if (!(pathes_a = li_pathes_create(board)))
-		return ;
-
+		return (-1);
+	if (pathes_a->item_count == 0)
+	{
+		li_pathes_destroy(&pathes_a);
+		return (-1);
+	}
 /* // TODO: put that in a function
 	for (int i_path = 0; i_path < pathes_a->item_count; i_path++)
 	{
@@ -66,7 +66,7 @@ void			li_print_result(t_li_board *board)
 
 	}
 */
-
 	li_print_result_2(board, pathes_a);
 	li_pathes_destroy(&pathes_a);
+	return (0);
 }
