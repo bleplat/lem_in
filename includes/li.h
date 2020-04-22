@@ -72,5 +72,11 @@ void			li_pathes_destroy(t_array **pathes_a);
 
 void			li_print_singleround_result(t_li_board *b);
 
+void			li_print_result_from_choices(t_board *board, t_array *pathes_a,
+												int *choices);
+
+int				li_print_move(int i_ant, t_room *dst, int *is_first);
+
+int				li_compute_rounds_needed(int ants, int paths, int *paths_len);
 
 #endif

@@ -48,6 +48,8 @@ FNT =		li_main.c \
 			li_print_input.c \
 			li_print_result.c \
 			li_print_singleround_result.c \
+			li_print_move.c \
+			li_print_result_from_choices.c \
 			li_board_pop_output.c \
 			li_resolve.c \
 			li_matrice.c \
@@ -62,7 +64,8 @@ FNT =		li_main.c \
 			li_reset_bfs.c \
 			li_pathes.c \
 			li_ant_choices_create.c \
-			li_distance_path.c
+			li_distance_path.c \
+			li_compute_rounds_needed.c
 
 
 ###########################
