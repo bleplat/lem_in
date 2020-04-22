@@ -6,20 +6,11 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 19:03:31 by jthierce          #+#    #+#             */
-/*   Updated: 2020/03/12 18:55:45 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/04/22 16:27:02 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "li_resolve.h"
-
-/*static void li_print_status_room(t_board board)
-{
-	int i;
-
-	i = -1;
-	while (++i < board.rooms_count)
-		ft_printf("{pink}Rooms %d status = %d\n{}", i, board.rooms[i].status);
-}*/
 
 static void	li_first_reset(t_board board)
 {
@@ -42,7 +33,6 @@ static void	li_used_path(t_board board, int **matrice)
 	rooms = &board.rooms[1];
 	while (rooms != NULL)
 	{
-		//ft_printf("{blue}Rooms %d status = %d{}\n", rooms->index, rooms->status);
 		if (rooms->status == 7)
 		{
 			rooms->prev = rooms->cp;
@@ -63,25 +53,16 @@ static int li_search_other_path(t_board board, int **matrice, int *queu, int *j)
 	int i;
 
 	i = -1;
-	/*ft_printf("{}+++++++++++++++++++\n{red}end status = %d\n{}", board.rooms[1].status);
-	li_print_matrice(board, matrice);*/
-	while  (board.rooms[1].status != 1 && queu[++i] != 0)    //doute de la condition
+	while  (board.rooms[1].status != 1 && queu[++i] != 0)
 		*j += li_bfs_body(board, matrice, queu + i, *j - i);
-	/*li_print_matrice(board, matrice);
-	ft_printf("{}--------------------\n");*/
 	if (queu[i] == 0 && board.rooms[1].status == 0)
 		return (-2);
-	else if (queu[i] == 0) //doute de la condition
+	else if (queu[i] == 0)
 		return (1);
 	li_used_path(board, matrice);
 	li_first_reset(board);
-	//ft_printf("{blue}On entre dans li_create_path\n{}");
 	if ((i = li_create_path(board, matrice)) == -1)
-	{
-		//ft_printf("{green}GEANT VERT??\n");
 		return (-1);
-	}
-	//ft_printf("{blue}BLUE DABEDI DABEDA\n");
 	if (i == -2)
 		return (1);
 	return (0);
@@ -151,9 +132,7 @@ int		li_bfs(t_board board, int **matrice)
 			free(queu);
 			return (i);
 		}
-		//li_print_status_room(board);
 		li_reset_bfs(board, matrice);
-		//li_print_path(board);
 	}
 	free(queu);
 	return (1);

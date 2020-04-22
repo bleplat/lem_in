@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 19:19:54 by jthierce          #+#    #+#             */
-/*   Updated: 2020/03/12 18:56:35 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/04/22 16:34:44 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	li_distance_path(t_board board, int *distance, int size)
 			room = &(board.rooms[board.rooms[1].link[i]]);
 			while (room->index != 0)
 			{
-				//ft_printf("{red}dans li_distance_path room = %d{}\n", room->index);
 				j++;
 				room = room->prev;
 			}
