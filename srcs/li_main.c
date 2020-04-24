@@ -62,7 +62,8 @@ int		main(int argc, char **argv)
 		li_board_destroy(&board);
 		return (ft_abs(li_perror(rst, NULL)));
 	}
-	li_print_result(board);
+	if (li_print_result(board) < 0)
+		ft_putstr_fd("ERROR WHILE PRINTING RESULT", 2);
 	li_board_destroy(&board);
 	return (rst);
 }
