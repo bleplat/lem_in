@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 19:03:31 by jthierce          #+#    #+#             */
-/*   Updated: 2020/04/24 15:53:22 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/04/24 16:03:49 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ static void	li_used_path(t_board board, int **matrice)
 	}
 }
 
-static int	li_search_other_path(t_board board, int **matrice, int *queu, int *j)
+static int	li_search_other_path(t_board board, int **matrice,
+			int *queu, int *j)
 {
 	int i;
 
