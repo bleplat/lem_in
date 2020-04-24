@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 15:00:00 by jthierce          #+#    #+#             */
-/*   Updated: 2020/04/24 16:17:17 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/04/24 17:02:12 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ static void	li_loop_return(t_board board, int **matrice, int i)
 		{
 			if (matrice[board.rooms[i].index][board.rooms
 			[board.rooms[i].link[j]].index] == 6)
-					board.rooms[i].prev =
-					&(board.rooms[board.rooms[i].link[j]]);
+				board.rooms[i].prev = &(board.rooms[board.rooms[i].link[j]]);
 		}
 		board.rooms[i].status = 2;
 	}
