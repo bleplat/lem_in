@@ -338,6 +338,7 @@ CDEFINES = $(patsubst %, -D%, $(DEFINES))
 
 CFLAGS = -Wall -Wextra -Werror
 CFLAGS += -I $(INCLUDES)
+CFLAGS += -fPIC
 # CFLAGS += -I $(LIBFT_DIR)/includes
 LDFLAGS = -L $(LIBFT_DIR) -lft
 # LDFLAGS = -L $(LIBFT_DIR) -lftmo
@@ -386,6 +387,7 @@ $(NAME_1): $(OBJ_C) $(OBJ_1)
 $(NAME_2): $(OBJ_C) $(OBJ_2)
 	@printf "\e[92m" || true
 	$(CC) $(CFLAGS) -shared -o $@ $^
+	#$(CC) $(CFLAGS)  -o $@ $^
 	chmod -x $@ || true
 	@printf "\e[0m" || true
 	make ftmo_help
