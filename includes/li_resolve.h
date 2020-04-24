@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 16:14:55 by jthierce          #+#    #+#             */
-/*   Updated: 2020/04/24 15:25:38 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/04/24 15:28:31 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		li_resolve(t_board board);
 int		li_bfs(t_board board, int **matrice);
 int		li_bfs_body(t_board board, int **matrice, int *queu, int j);
 int		**li_create_matrice(int size_room);
-void 	li_free_matrice(int **matrice, int size);
+void	li_free_matrice(int **matrice, int size);
 int		li_ini_matrice_link(t_board board, int **matrice);
 int		li_free_link(t_board board);
 int		li_memrealloc(void **mem, size_t previous_size, size_t new_size);
