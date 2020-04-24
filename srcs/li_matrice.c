@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 13:56:04 by jthierce          #+#    #+#             */
-/*   Updated: 2020/03/05 19:24:53 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/04/24 15:33:03 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 **7: Used C path with 5
 */
 
-void li_free_matrice(int **matrice, int size)
+void	li_free_matrice(int **matrice, int size)
 {
 	while (--size >= 0)
 		free(matrice[size]);

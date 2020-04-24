@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 13:31:01 by jthierce          #+#    #+#             */
-/*   Updated: 2020/04/22 17:50:45 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/04/24 15:01:11 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,6 @@ int			li_calc_step(t_board board, int status)
 	step.size++;
 	li_distance_path(board, step.distance, step.size);
 	i = li_compute_rounds_needed(board.ants_count, step.size, step.distance);
-	//ft_printf("{red} i = %d\n", i);
 	if (i <= step.step)
 	{
 		step.step = i;
