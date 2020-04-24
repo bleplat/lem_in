@@ -76,5 +76,7 @@ void			li_print_result_from_choices(t_board *board, t_array *pathes_a,
 												int *choices);
 
 int				li_print_move(int i_ant, t_room *dst, int *is_first);
+int				li_begin_ants(t_board *brd, t_array *pathes_a, int *choices,
+							int *is_first_ant);
 
 #endif

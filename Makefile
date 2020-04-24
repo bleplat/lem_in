@@ -50,6 +50,7 @@ FNT =		li_main.c \
 			li_print_singleround_result.c \
 			li_print_move.c \
 			li_print_result_from_choices.c \
+			li_begin_ants.c \
 			li_board_pop_output.c \
 			li_resolve.c \
 			li_matrice.c \

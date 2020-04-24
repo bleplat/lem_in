@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   li_print_result.c                                  :+:      :+:    :+:   */
+/*   li_print_result_from_choices.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -54,61 +54,6 @@ int				move_ants_on_pathes(t_array *pathes_a,
 	return (rst);
 }
 
-int				not_done(int a, int b, int *choices)
-{
-	while (a < b)
-	{
-		if (choices[a] == choices[b])
-			return (0);
-		a++;
-	}
-	return (1);
-}
-
-/*
-** Send ants at the begin of the pathes.
-** This is requiered to put ants on their path.
-*/
-
-int				begin_ants(t_board *brd, t_array *pathes_a, int *choices,
-							int *is_first_ant)
-{
-	int		rst;
-	int		a;
-	int		b;
-	t_array	*path;
-	t_room	*first;
-
-	rst = 0;
-	a = 0;
-	while (a < pathes_a->item_count)
-	{
-		path = *(void**)ft_array_at(pathes_a, a);
-		first = *(t_room**)ft_array_at(path, path->item_count - 2);
-		first->i_ant = -1;
-		a++;
-	}
-	a = 0;
-	while (a < brd->ants_count && choices[a] < 0)
-		a++;
-	b = a;
-	while (b < brd->ants_count && not_done(a, b, choices))
-	{
-		path = *(void**)ft_array_at(pathes_a, choices[b]);
-		first = *(t_room**)ft_array_at(path, path->item_count - 2);
-		first->i_ant = b;
-		rst |= li_print_move(b, first, is_first_ant);
-		b++;
-	}
-	b--;
-	while (b >= a)
-	{
-		choices[b] = -1;
-		b--;
-	}
-	return (rst);
-}
-
 /*
 ** Finaly moving ants according to their choice.
 */
@@ -127,6 +72,6 @@ void			li_print_result_from_choices(t_board *board, t_array *pathes_a,
 		keep_running = 0;
 		is_first_ant = 1;
 		keep_running |= move_ants_on_pathes(pathes_a, &is_first_ant);
-		keep_running |= begin_ants(board, pathes_a, choices, &is_first_ant);
+		keep_running |= li_begin_ants(board, pathes_a, choices, &is_first_ant);
 	}
 }
