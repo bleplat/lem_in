@@ -15,7 +15,7 @@
 ###########################
 
 NAME_1  =   libft.a
-NAME_2  =   libftmo.so
+NAME_2  =   libftmo.a
 NAME    =   $(NAME_1)_$(NAME_2)_demos
 ALL_NAMES = $(NAME_1) $(NAME_2) demos
 
@@ -372,8 +372,8 @@ optimized: CFLAGS += -o3
 optimized: all
 
 .PHONY: debug
-optimized: LDFLAGS += -L. -lftmo -rdynamic
-optimized: all
+debug: LDFLAGS += -L. -lftmo -rdynamic
+debug: all
 
 .PHONY: $(NAME)
 $(NAME): $(ALL_NAMES)
@@ -386,9 +386,10 @@ $(NAME_1): $(OBJ_C) $(OBJ_1)
 
 $(NAME_2): $(OBJ_C) $(OBJ_2)
 	@printf "\e[92m" || true
-	$(CC) $(CFLAGS) -shared -o $@ $^
+	ar rc $(NAME_2) $(OBJ_2)
+	#$(CC) $(CFLAGS) -shared -o $@ $^
 	#$(CC) $(CFLAGS)  -o $@ $^
-	chmod -x $@ || true
+	#chmod -x $@ || true
 	@printf "\e[0m" || true
 	make ftmo_help
 

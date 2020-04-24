@@ -23,7 +23,7 @@ NAME        = lem-in
 
 LIBFT_DIR   = ./libft
 LIBFT       = $(LIBFT_DIR)/libft.a
-LIBFTMO     = libftmo.so
+LIBFTMO     = $(LIBFT_DIR)/libftmo.a
 
 
 ###########################
@@ -152,9 +152,9 @@ $(LIBFT):
 
 $(LIBFTMO):
 	@printf "\e[35m" || true
-	make -C $(LIBFT_DIR) libftmo.so
+	make -C $(LIBFT_DIR) libftmo.a
 	@printf "\e[35m" || true
-	cp $(LIBFT_DIR)/libftmo.so $@
+	#cp $(LIBFT_DIR)/libftmo.so $@
 	@printf "\e[0m" || true
 
 .PHONY: clean
