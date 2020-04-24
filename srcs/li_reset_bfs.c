@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 16:03:07 by jthierce          #+#    #+#             */
-/*   Updated: 2020/04/24 15:37:40 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/04/24 17:04:43 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static void	li_reset_matrice(int **matrice, t_board board)
 	}
 }
 
-void	li_reset_bfs(t_board board, int **matrice)
+void		li_reset_bfs(t_board board, int **matrice)
 {
 	li_reset_rooms_status(board, matrice);
 	li_reset_matrice(matrice, board);
