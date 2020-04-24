@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 13:31:01 by jthierce          #+#    #+#             */
-/*   Updated: 2020/04/24 18:14:38 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/04/24 18:16:32 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 int			li_calc_step(t_board board, int status)
 {
 	static t_calc_step	step = {INT_MAX, NULL, 0};
-	int 				i;
+	int					i;
 
 	i = 0;
 	if (status == 1)
