@@ -23,7 +23,6 @@ int		main_resolve(t_li_board *board)
 
 	if ((rst = li_resolve(*board)) < 0)
 		return (-1);
-	// TODO: Do that in li_resolve instead?
 	board->resolve_result = rst;
 	return (0);
 }
@@ -60,12 +59,11 @@ int		main(int argc, char **argv)
 		return (ft_abs(li_perror(-1, NULL)));
 	if ((rst = main_parse_resolve(board)) < 0)
 	{
-		//li_board_dump(board);
 		li_board_destroy(&board);
 		return (ft_abs(li_perror(rst, NULL)));
 	}
-	li_print_input(board);
-	li_print_result(board);
+	if (li_print_result(board) < 0)
+		ft_putstr_fd("ERROR WHILE PRINTING RESULT", 2);
 	li_board_destroy(&board);
 	return (rst);
 }

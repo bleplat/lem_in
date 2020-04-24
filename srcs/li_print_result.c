@@ -24,11 +24,6 @@ void			li_print_result_2(t_board *board, t_array *pathes_a)
 
 	if (!(choices = li_ant_choices_create(board, pathes_a)))
 		return ;
-	/* // TODO: function displaying choices
-	for (int n = 0; n < board->ants_count; n++)
-		ft_printf("%d, ", choices[n]);
-	ft_printf("\n");
-	*/
 	li_print_result_from_choices(board, pathes_a, choices);
 	ft_free0(choices);
 }
@@ -39,12 +34,14 @@ void			li_print_result_2(t_board *board, t_array *pathes_a)
 
 int				li_print_result(t_li_board *board)
 {
-	//li_board_dump(board);
 	t_array			*pathes_a;
-	ft_putchar('\n');
 
+	li_print_input(board);
+	ft_putchar('\n');
 	if (board->resolve_result == 2)
+	{
 		return (li_print_singleround_result(board));
+	}
 	if (!(pathes_a = li_pathes_create(board)))
 		return (-1);
 	if (pathes_a->item_count == 0)
@@ -52,20 +49,6 @@ int				li_print_result(t_li_board *board)
 		li_pathes_destroy(&pathes_a);
 		return (-1);
 	}
-/* // TODO: put that in a function
-	for (int i_path = 0; i_path < pathes_a->item_count; i_path++)
-	{
-		ft_printf("voici un chemin:\n");
-		t_array		*rooms_a;
-		rooms_a = *(void**)ft_array_at(pathes_a, i_path);
-		for (int k = 0; k < rooms_a->item_count; k++)
-		{
-			li_room_dump(*(void**)ft_array_at(rooms_a, k));
-		}
-		
-
-	}
-*/
 	li_print_result_2(board, pathes_a);
 	li_pathes_destroy(&pathes_a);
 	return (0);

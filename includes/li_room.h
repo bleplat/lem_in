@@ -25,13 +25,13 @@
 /*
 ** STATUS VALUE:
 **
-**0: Nothing
-**1: in Queue
-**2: In path
-**5: Mandatory to use C path
-**6: Used C path
-**7: temporary status 5
-**8: temporary status 6
+** 0: Nothing
+** 1: in Queue
+** 2: In path
+** 5: Mandatory to use C path
+** 6: Used C path
+** 7: temporary status 5
+** 8: temporary status 6
 */
 
 typedef struct s_li_room		t_li_room;
