@@ -96,6 +96,7 @@ CFLAGS += $(CDEFINES)
 CFLAGS += -I $(INCLUDES)
 CFLAGS += -I $(LIBFT_DIR)/includes
 #CFLAGS += -o3
+#CFLAGS += -g -pg -fno-pie -static
 
 LDFLAGS += -L $(LIBFT_DIR) -lft
 
