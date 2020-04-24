@@ -41,7 +41,7 @@ t_array		*create_path_from_end(t_li_board *brd, t_li_room *room)
 	t_array		*rooms_a;
 	t_room		**new_item;
 
-	if (!(rooms_a = ft_array_new(sizeof(t_room*), 12)))
+	if (!(rooms_a = ft_array_new(sizeof(t_room*), 32)))
 		return (NULL);
 	if (!(new_item = ft_array_newitem(rooms_a)))
 		return (NULL);
@@ -95,7 +95,7 @@ t_array		*li_pathes_create(t_li_board *board)
 {
 	t_array	*to_return;
 
-	if (!(to_return = ft_array_new(sizeof(t_array*), 8)))
+	if (!(to_return = ft_array_new(sizeof(t_array*), 32)))
 		return (NULL);
 	if (push_pathes(board, to_return) < 0)
 	{
