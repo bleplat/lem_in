@@ -35,10 +35,13 @@ void			li_print_result_2(t_board *board, t_array *pathes_a)
 int				li_print_result(t_li_board *board)
 {
 	t_array			*pathes_a;
-	ft_putchar('\n');
 
+	li_print_input(board);
+	ft_putchar('\n');
 	if (board->resolve_result == 2)
+	{
 		return (li_print_singleround_result(board));
+	}
 	if (!(pathes_a = li_pathes_create(board)))
 		return (-1);
 	if (pathes_a->item_count == 0)
