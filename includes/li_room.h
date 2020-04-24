@@ -12,7 +12,7 @@
 
 #ifndef LI_ROOM_H
 # define LI_ROOM_H
-#include "libft.h"
+# include "libft.h"
 
 /*
 ** t_li_room
@@ -25,31 +25,28 @@
 /*
 ** STATUS VALUE:
 **
-**0: Nothing
-**1: in Queue
-**2: In path
-**5: Mandatory to use C path
-**6: Used C path
-**7: temporary status 5
-**8: temporary status 6
+** 0: Nothing
+** 1: in Queue
+** 2: In path
+** 5: Mandatory to use C path
+** 6: Used C path
+** 7: temporary status 5
+** 8: temporary status 6
 */
 
 typedef struct s_li_room		t_li_room;
 typedef t_li_room				t_room;
 struct							s_li_room
 {
-	// Ce que je lis dans les fichiers
-	int			index; // Si tu accede aux elements via leur index, alors ceci est deja inutile (si tu utilise rooms[5] alors tu sais deja que index == 5)
+	int			index;
 	const char	*name;
 	int			x;
 	int			y;
-	// Ce qui est utile lors de la resolution de l'algo
-	int			*link;//Mettre a NULL
-	int			count_link;//Initialiser a 0
-	t_room		*prev;//mettre a NULL
+	int			*link;
+	int			count_link;
+	t_room		*prev;
 	t_room		*cp;
-	int			status;//Initialiser a 0
-	// mouse
+	int			status;
 	int			i_ant;
 };
 
