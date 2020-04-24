@@ -32,7 +32,6 @@ int				ft_listxattr(char **out, const char *path, int options)
 	if (out)
 		*out = NULL;
 	len = listxattr(path, NULL, 0, options);
-	#
 	if (len <= 0 || !out)
 		return (len);
 	if (!(*out = malloc(len)))
@@ -51,6 +50,6 @@ int				ft_listxattr(char **out, const char *path, int options)
 
 #else
 
-#pragma message ("ft_listxattr() unavailable!")
+# pragma message ("ft_listxattr() unavailable!")
 
 #endif
