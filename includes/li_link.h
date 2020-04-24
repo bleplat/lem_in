@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   li_link.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 16:57:37 by bleplat           #+#    #+#             */
-/*   Updated: 2020/02/29 17:40:50 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/04/24 15:27:04 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LINK_H
-# define FT_LINK_H
+#ifndef LI_LINK_H
+# define LI_LINK_H
 
 # include "li_board.h"
 # include "li_room.h"
