@@ -21,11 +21,6 @@ int				move_ants_on_path(t_array *rooms_a,
 	t_room	*room_e;
 	t_room	*room_s;
 	int		i_room_s;
-	//ft_printf("{italic}{bold}{red}HAHA moving on path of size %d{}\n", rooms_a->item_count);//
-	//for (int kk = 0; kk < rooms_a->item_count; kk++)
-	//{
-	//	li_room_dump(*(t_room**)ft_array_at(rooms_a, kk));
-	//}
 
 	rst = 0;
 	room_e = *(t_room**)ft_array_at(rooms_a, 0);
@@ -34,14 +29,13 @@ int				move_ants_on_path(t_array *rooms_a,
 	{
 		room_s = *(t_room**)ft_array_at(rooms_a, i_room_s);
 		room_e->i_ant = room_s->i_ant;
-		//ft_printf("ant %d walking to %s...\n", room_e->i_ant, room_e->name);
 		rst |= li_print_move(room_e->i_ant, room_e, is_first_ant);
 		room_e = room_s;
 		i_room_s++;
 	}
-	//ft_printf("move_ants_on_path returning %d\n", rst);//
 	return (rst);
 }
+
 int				move_ants_on_pathes(t_array *pathes_a,
 							int *is_first_ant)
 {
@@ -57,7 +51,6 @@ int				move_ants_on_pathes(t_array *pathes_a,
 		rst |= move_ants_on_path(path, is_first_ant);
 		i_path++;
 	}
-	//ft_printf("move_ants_on_pathes returning %d\n", rst);//
 	return (rst);
 }
 
@@ -91,17 +84,14 @@ int				begin_ants(t_board *brd, t_array *pathes_a, int *choices,
 		first->i_ant = -1;
 		a++;
 	}
-	//
 	a = 0;
 	while (a < brd->ants_count && choices[a] < 0)
 		a++;
-	//ft_printf("a ==  %d\n", a);//
 	b = a;
 	while (b < brd->ants_count && not_done(a, b, choices))
 	{
 		path = *(void**)ft_array_at(pathes_a, choices[b]);
 		first = *(t_room**)ft_array_at(path, path->item_count - 2);
-		//ft_printf("ant %d on path %d\n", b, choices[b]);//
 		first->i_ant = b;
 		rst |= li_print_move(b, first, is_first_ant);
 		b++;
@@ -112,7 +102,6 @@ int				begin_ants(t_board *brd, t_array *pathes_a, int *choices,
 		choices[b] = -1;
 		b--;
 	}
-	//ft_printf("begin_ants returning %d\n", rst);//
 	return (rst);
 }
 
