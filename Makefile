@@ -123,7 +123,7 @@ upgrade:
 	@printf "\e[0m" || true
 
 .PHONY: debug
-debug: LDFLAGS += -L. -lftmo -rdynamic
+debug: LDFLAGS += -L. -lftmo -rdynamic -ldl
 debug: $(LIBFTMO) all
 
 .PHONY: optimized
