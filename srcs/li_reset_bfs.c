@@ -6,11 +6,25 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 16:03:07 by jthierce          #+#    #+#             */
-/*   Updated: 2020/04/22 17:44:05 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/04/24 15:37:40 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "li_resolve.h"
+
+void		li_first_reset(t_board board)
+{
+	int i;
+
+	i = -1;
+	while (++i < board.rooms_count)
+	{
+		if (board.rooms[i].status == 7)
+			board.rooms[i].status = 2;
+		else if (board.rooms[i].status == 8)
+			board.rooms[i].status = 2;
+	}
+}
 
 static void	li_reset_rooms_status(t_board board, int **matrice)
 {
@@ -24,12 +38,11 @@ static void	li_reset_rooms_status(t_board board, int **matrice)
 		if (board.rooms[i].status == 7 ||
 			board.rooms[i].status == 8)
 			board.rooms[i].status = 2;
-		if (board.rooms[i].status == 1)
+		else if (board.rooms[i].status == 1)
 			board.rooms[i].status = 0;
-		if (board.rooms[i].status == 5 ||
+		else if (board.rooms[i].status == 5 ||
 		board.rooms[i].status == 6)
 		{
-			//ft_printf("{blue}$$$$$$$i = %d\n{}", i);
 			board.rooms[i].status = 0;
 			while (++j < board.rooms[i].count_link)
 			{
@@ -49,14 +62,17 @@ static void	li_reset_matrice(int **matrice, t_board board)
 	i = -1;
 	while (++i < board.rooms_count)
 	{
-		j = -1;
+		j = 0;
 		while (++j < board.rooms_count)
 		{
-			if (matrice[i][j] == 2 ||
-			matrice[i][j] == 3)
-				matrice[i][j] = 1;
-			else if (matrice[i][j] == 6 || matrice[i][j] == 7)
-				matrice[i][j] = 0;
+			if (matrice[i][j] != 0)
+			{
+				if (matrice[i][j] == 2 ||
+				matrice[i][j] == 3)
+					matrice[i][j] = 1;
+				else if (matrice[i][j] == 6 || matrice[i][j] == 7)
+					matrice[i][j] = 0;
+			}
 		}
 	}
 }
