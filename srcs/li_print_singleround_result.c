@@ -31,5 +31,6 @@ int				li_print_singleround_result(t_li_board *brd)
 		ft_putstr(brd->rooms[1].name);
 		i_mouse++;
 	}
+	ft_putstr('\n');
 	return (0);
 }
