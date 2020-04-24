@@ -1,9 +1,9 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   li_main.c                                          :+:      :+:    :+:   */
+/*   li_compute_rounds_needed.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 17:45:14 by bleplat           #+#    #+#             */
 /*   Updated: 2020/03/12 20:17:35 by bleplat          ###   ########.fr       */
@@ -47,7 +47,7 @@ int				min_count(int count, unsigned int *ints)
 		if (ints[total] == ints[total - 1])
 			total++;
 		else
-			break;
+			break ;
 	}
 	return (total);
 }
@@ -64,7 +64,6 @@ int				pop(int *ants_cnt, int count, unsigned int *ints)
 		ints[i_int] += 1;
 		i_int++;
 	}
-	// TODO: can be improved
 	(*ants_cnt) -= min_cnt;
 	return (1);
 }
@@ -82,7 +81,7 @@ int				li_compute_rounds_needed(int ants, int pathes, int *pathes_len)
 	round_cnt = pathes_len[0];
 	while (1)
 	{
-		round_cnt += pop(&ants, pathes, (unsigned int*) pathes_len);
+		round_cnt += pop(&ants, pathes, (unsigned int*)pathes_len);
 		if (ants <= 0)
 			return (round_cnt);
 	}
