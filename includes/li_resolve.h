@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 16:14:55 by jthierce          #+#    #+#             */
-/*   Updated: 2020/04/24 15:28:31 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/04/24 15:38:24 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int		li_memrealloc(void **mem, size_t previous_size, size_t new_size);
 void	li_insertion_sort(int *str, size_t size);
 int		li_calc_step(t_board board, int status);
 int		li_create_path(t_board board, int **matrice);
+void	li_first_reset(t_board board);
 void	li_reset_bfs(t_board board, int **matrice);
 void	li_print_matrice(t_board board, int **matrice);
 void	li_distance_path(t_board board, int *distance, int size);
