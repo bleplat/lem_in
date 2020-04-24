@@ -65,6 +65,11 @@ int				not_done(int a, int b, int *choices)
 	return (1);
 }
 
+/*
+** Send ants at the begin of the pathes.
+** This is requiered to put ants on their path.
+*/
+
 int				begin_ants(t_board *brd, t_array *pathes_a, int *choices,
 							int *is_first_ant)
 {
@@ -75,7 +80,6 @@ int				begin_ants(t_board *brd, t_array *pathes_a, int *choices,
 	t_room	*first;
 
 	rst = 0;
-	// todo: set all first room in pathes at 0;
 	a = 0;
 	while (a < pathes_a->item_count)
 	{
