@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   li_perror.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 19:53:38 by bleplat           #+#    #+#             */
-/*   Updated: 2020/02/29 20:32:40 by bleplat          ###   ########.fr       */
+/*   Updated: 2020/04/25 15:09:17 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int					li_perror(int code, const char *message)
 {
 	(void)message;
 	if (message == NULL)
-		ft_dprintf(2, "ERROR");
+		ft_dprintf(2, "ERROR\n");
 	else
 		ft_dprintf(2, message);
 	return (code);
