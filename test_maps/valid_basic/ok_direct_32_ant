@@ -1,0 +1,16 @@
+# MOUSE COUNT:
+32
+# ROOMS:
+##start
+start 0 0
+##end
+end 1 1
+a 2 2
+b 3 3
+# LINKS:
+start-a
+start-b
+a-end
+b-end
+end-start
+# END OF FILE
