@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 14:49:41 by jthierce          #+#    #+#             */
-/*   Updated: 2020/04/24 17:11:37 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/04/27 17:07:24 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ static int	li_find_link(int index, int **matrice, t_board board)
 	i = -1;
 	while (++i < board.links_count)
 	{
-		if (board.links[i].i_room_a == index)
+		if (board.links[i].i_room_a == index &&
+		board.links[i].i_room_a != board.links[i].i_room_b)
 		{
 			room = &board.rooms[index];
 			matrice[index][board.links[i].i_room_b] = 1;
