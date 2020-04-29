@@ -9,5 +9,6 @@ room 2 2
 # LINKS:
 start-room
 room-end
+# as follow, end-void
 end-void
 # END OF FILE
