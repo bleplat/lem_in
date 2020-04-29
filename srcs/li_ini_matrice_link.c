@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 14:49:41 by jthierce          #+#    #+#             */
-/*   Updated: 2020/04/27 17:07:24 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/04/29 22:35:35 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@ int			li_free_link(t_board board)
 	return (-1);
 }
 
+static void li_minime_find_link(t_board board, int **matrice, int index, int i)
+{
+	matrice[index][board.links[i].i_room_b] = 1;
+	matrice[board.links[i].i_room_b][index] = 1;
+}
+
 static int	li_find_link(int index, int **matrice, t_board board)
 {
 	t_room	*room;
@@ -37,8 +43,7 @@ static int	li_find_link(int index, int **matrice, t_board board)
 		board.links[i].i_room_a != board.links[i].i_room_b)
 		{
 			room = &board.rooms[index];
-			matrice[index][board.links[i].i_room_b] = 1;
-			matrice[board.links[i].i_room_b][index] = 1;
+			li_minime_find_link(board, matrice, index, i);
 			if (li_memrealloc((void **)&(room->link), sizeof(int) *
 			room->count_link, sizeof(int) * (room->count_link + 1)))
 				return (li_free_link(board));
