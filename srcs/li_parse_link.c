@@ -42,9 +42,9 @@ static int	push_link(t_board *board, t_array *links_a,
 	t_li_link		link;
 
 	if (li_make_link(&link, board, line, stick + 1) != 0)
-		return (ft_array_pop0(links_a) + LI_ERROR_LINKS_ROOM_DO_NOT_EXIST);
+		return (LI_ERROR_LINKS_ROOM_DO_NOT_EXIST);
 	if (exist(links_a, &link))
-		return (1);
+		return (0);
 	if (!(new_link = ft_array_newitem(links_a)))
 		return (-1);
 	*new_link = link;
@@ -70,7 +70,5 @@ int			li_parse_link(t_li_board *board, t_array *links_a, char *line)
 	rst = push_link(board, links_a, line, stick);
 	*stick = '-';
 	*nl = '\n';
-	if (rst < 0)
-		return (rst);
-	return (0);
+	return (rst);
 }
