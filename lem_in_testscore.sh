@@ -6,9 +6,11 @@
 #    By: bleplat <bleplat@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 19:42:20 by bleplat           #+#    #+#              #
-#    Updated: 2020/03/03 22:12:12 by bleplat          ###   ########.fr        #
+#    Updated: 2020/04/30 15:12:38 by bleplat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+GENERATOR=./generator-osx
 
 rm -f *.tmp
 
@@ -38,7 +40,7 @@ fi
 # Run with all files in the folder:
 for (( i=0; i<$CNT; ++i)); do
 	if [ $i -gt 0 ]; then sleep 1; fi
-	./generator $FLOW > map.tmp
+	$GENERATOR $FLOW > map.tmp
 	EXPECTED=$(cat map.tmp | tail -n 1 | sed "s/^.*: \(.*\)$/\1/")
 	LINES=$(cat map.tmp | wc -l | sed "s/^ *\(.*\)$/\1/")
 	printf "\e[97mTesting a map of $LINES lines:\n\e[0m"
