@@ -6,7 +6,7 @@
 /*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 14:49:41 by jthierce          #+#    #+#             */
-/*   Updated: 2020/04/29 22:35:35 by jthierce         ###   ########.fr       */
+/*   Updated: 2020/04/30 14:10:00 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int			li_free_link(t_board board)
 	return (-1);
 }
 
-static void li_minime_find_link(t_board board, int **matrice, int index, int i)
+static void	li_minime_find_link(t_board board, int **matrice, int index, int i)
 {
 	matrice[index][board.links[i].i_room_b] = 1;
 	matrice[board.links[i].i_room_b][index] = 1;
